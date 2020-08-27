@@ -1,22 +1,22 @@
-create database soap_fase2;
+create database saop_fase2;
 
-use soap_fase2;
+use saop_fase2;
 
 CREATE TABLE carrera(
 	codigo_carrera INTEGER NOT NULL PRIMARY KEY,
-	nombre         VARCHAR(30)
+	nombre         VARCHAR(50)
 );
 
 CREATE TABLE curso(
 	codigo_curso INTEGER NOT NULL PRIMARY KEY,
-	nombre_curso VARCHAR(30),
+	nombre_curso VARCHAR(50),
 	creditos     INTEGER,
     CONSTRAINT CHK_creditos  CHECK(creditos > 0)
 );
 
 CREATE TABLE pensum(
 	codigo_pensum INTEGER NOT NULL PRIMARY KEY,
-	carrera       VARCHAR(30)
+	carrera       VARCHAR(50)
 );
 
 CREATE TABLE usuario(
@@ -24,6 +24,7 @@ CREATE TABLE usuario(
 	nombre             VARCHAR(30),
 	apellidos          VARCHAR(50),
 	CUI            	   INTEGER UNIQUE,
+	clave			   VARCHAR(20),
 	ref_codigo_carrera INTEGER NOT NULL,
 	CONSTRAINT fk_carrera  FOREIGN KEY(ref_codigo_carrera) REFERENCES carrera(codigo_carrera) ON DELETE CASCADE 
 );
@@ -46,7 +47,3 @@ CREATE TABLE usuario_curso(
     CONSTRAINT fk_usuario  FOREIGN KEY(ref_carnet) REFERENCES usuario(carnet) ON DELETE CASCADE,
     CONSTRAINT fk_curso    FOREIGN KEY(ref_codigo_curso)   REFERENCES curso(codigo_curso) ON DELETE CASCADE
 );
-
-
-
-
