@@ -26,7 +26,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -120,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Frontend-SAOP"
+    }
+  },
+  "defaultProject": "Frontend-SAOP",
+  "cli": {
+    "analytics": "51d09190-36a6-4d14-9a13-079ab9652748"
+  }
 }
