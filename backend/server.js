@@ -31,6 +31,8 @@ http://localhost:4000/api/usuario/agregar
 consultar curso por cada usuario
 http://localhost:4000/api/usuarioCurso/2023
 
+//obtener detalle de un curso
+http://localhost:4000/api/usuarioCurso/detalleCurso
 */
 //------------------- Rutas -------------------
 
