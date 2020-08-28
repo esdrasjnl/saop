@@ -1,29 +1,38 @@
 const bodyparser = require('body-parser');
-const mysql = require('mysql');
 var express = require('express')
-
 var http = require('http');
 var app = express();
+var mysqldb =require('./database');
+//const mysql = require('mysql');
+const { CLIENT_RENEG_LIMIT } = require('tls');
 const PORT = process.env.PORT || 4000;
+
+const usuario = require('./routes/usuario');
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
+
 //------------------------------------------------
 
-//Conexión a MySQL
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '110896',
-    database: 'saop_fase2'
-});
+//------------------- Rutas -------------------
+app.use('/usuario', usuario);
 
-//Check connect
-connection.connect(error=>{
-    if(error) throw error;
-    console.log('Base de datos ejecutandose!');
-});
+/*
+Obtener un usuario por carnet
+http://localhost:4000/api/usuario/obtenerUsuario/201512345
+
+Obtener todos los usuarios
+http://localhost:4000/api/usuario/obtener
+
+Agregar un nuevo usuario
+http://localhost:4000/api/usuario/agregar
+
+consultar curso por cada usuario
+http://localhost:4000/api/usuarioCurso/2023
+
+*/
+//------------------- Rutas -------------------
 
 app.listen(PORT, ()=>{
     console.log(`Servidor Corriendo en el puerto ${PORT}`);
@@ -31,6 +40,11 @@ app.listen(PORT, ()=>{
 
 //Route
 app.get('/', (req, res)=>{
-    res.send('Bienvenido a mi API');
+    res.send('SAOP API');
 });
 
+app.use('/api/usuarioCurso/',require('./routes/usuario_curso.router'));
+app.use('/api/usuario/',require('./routes/usuario.router'));
+
+//Check connect
+mysqldb.connect();
