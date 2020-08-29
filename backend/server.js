@@ -33,6 +33,10 @@ http://localhost:4000/api/usuarioCurso/2023
 
 //obtener detalle de un curso
 http://localhost:4000/api/usuarioCurso/detalleCurso
+
+//Eliminar un usuario
+http://localhost:4000/api/usuarioCurso/detalleCurso
+
 */
 //------------------- Rutas -------------------
 
@@ -47,6 +51,7 @@ app.get('/', (req, res)=>{
 
 app.use('/api/usuarioCurso/',require('./routes/usuario_curso.router'));
 app.use('/api/usuario/',require('./routes/usuario.router'));
+app.use('/api/usuarioEliminar/',require('./routes/usuario.router'));
 
 //Check connect
 mysqldb.connect();
