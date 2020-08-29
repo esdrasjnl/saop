@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'dbsamines',
-    database: 'soap_fase2'
+    host: '3.21.206.146',
+    user: 'saop',
+    password: '123',
+    database: 'saop_fase2'
 });
 
 exports.connection = connection;
