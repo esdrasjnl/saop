@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const bd = require('../database/db');
+const bd = require('../database');
 
 router.get('/obtener', (req, res) => {
     const sql = 'select * from usuario';
