@@ -4,7 +4,7 @@ const mysqldb=require('../database');
 userCourseCtrl.getUsuarioCurso=async function(req,res,next){
     const {id}=req.params;
     const sql=`SELECT usuario.nombre,usuario.carnet,`+
-    `curso.nombre_curso,curso.creditos,`+
+    `curso.codigo_curso,curso.nombre_curso,curso.creditos,`+
     `usuario_curso.estado `+
     `from usuario_curso `+
     `INNER JOIN usuario ON usuario_curso.ref_carnet=usuario.carnet `+

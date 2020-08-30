@@ -8,25 +8,18 @@
     <p class="text-warning"></p>
     <h4 class="p-3 mb-2 bg-warning text-dark">VISUALIZACION DE CURSOS DETALLADOS</h4>
   </div>
-  
+  <label class="control-label">Elija el curso que desea visualizar</label>
   <div class="form-group">
-    <fieldset>
-      <label class="control-label" for="readOnlyInput">Elija el curso que desea visualizar</label>
-      <select [(ngModel)]="curso" class="form-control form-control-lg">
-        <option  value="compi">Compiladores</option>
-        <option value="Estructura">Estructura de datos</option>
-      </select>
-     </fieldset>
-
-  </div>
+    <select class="custom-select">
+       
+        <option *ngFor="let curso of cursos" value="1" (click)="recibirCurso(curso)">{{curso.nombre_curso}}</option>
+    </select>
+</div>
   
   
   <div class="form-group">
   </div>
   
-  <div class="form-group">
-    <button (click)="vercurso()"  type="button" class="btn btn-success">Ver Curso</button>
-  </div>
 
   <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
     <div class="card-header text-warning"><h3 class="card-title text-warning">{{nombrecurso}}</h3></div>

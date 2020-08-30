@@ -3,6 +3,7 @@ var express = require('express')
 var http = require('http');
 var app = express();
 var mysqldb =require('./database');
+var cors = require('cors');
 //const mysql = require('mysql');
 const { CLIENT_RENEG_LIMIT } = require('tls');
 const PORT = process.env.PORT || 4000;
@@ -11,7 +12,7 @@ const usuario = require('./routes/usuario');
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-
+app.use(cors());
 //------------------------------------------------
 
 

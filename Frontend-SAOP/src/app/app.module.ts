@@ -7,6 +7,7 @@ import { VisualizacionComponent } from './components/visualizacion/visualizacion
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import {  HttpClientModule} from '@angular/common/http';
+import {CursoService} from './services/curso.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import {  HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CursoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
