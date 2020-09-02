@@ -15,6 +15,6 @@ export class UsuarioService {
   getusuario(usuario)
   {
     console.log(usuario);
-    return this.http.post<any>(`${this.api}/usuarioCurso/detalleCurso`,usuario);
+    return this.http.post<any>(`${this.api}/usuario/inicioSesion`,usuario);
   }
 }

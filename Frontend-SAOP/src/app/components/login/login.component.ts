@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  respuesta:any = [];
 
   datos = {
     carnet:0 ,
@@ -26,8 +27,6 @@ export class LoginComponent implements OnInit {
 
   loguear()
   {
-    //imprimir cosas jajaj hay se lo quitas
-    console.log(this.carnet,this.password);
     this.datos.carnet=this.carnet;
     this.datos.password=this.password;
     console.log(this.datos);
@@ -35,10 +34,35 @@ export class LoginComponent implements OnInit {
     this.service.getusuario(this.datos)
     .subscribe(
       res => {
-       // this.cursos = res;
-       console.log(res);
+       if(res != false)
+       {
+         this.respuesta = res[0];
+         this.almacenarDatos();
+         this.router.navigate(['/principal']);
+       }
+       else
+       {
+         alert("USUARIO INCORRECTO, VUELVE A INTENTAR!");
+       }
+       this.limpiar();
       },
       err => console.log(err)
     )
   }
+
+  almacenarDatos()
+{
+  localStorage.setItem('nombre',this.respuesta[0]);
+  localStorage.setItem('apellido',this.respuesta[1]);
+  localStorage.setItem('carnet',this.respuesta[2]);
+  console.log(localStorage.getItem('nombre'));
 }
+
+limpiar()
+{
+  this.datos.carnet = 0;
+  this.datos.password = '';
+}
+}
+
+
