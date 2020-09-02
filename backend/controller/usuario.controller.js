@@ -72,15 +72,19 @@ usuarioCtrl.loginUsuario = async function(req,res,next){
     mysqldb.connection.query(sql, (error, result) => {
         if(error) throw error;
         if(result.length > 0){
-            //res.json(result);
+            res.json(result);
+            /*
             res.status(201).json({
                 msg: "true",
             });
+            */
         } else {
-            //res.send('No hay resultados');
+            res.send('No hay resultados');
+            /*
             res.status(201).json({
                 msg: "false"
             });
+            */
         }
     });
 } 
