@@ -38,6 +38,24 @@ http://localhost:4000/api/usuarioCurso/detalleCurso
 //Eliminar un usuario
 http://localhost:4000/api/usuarioCurso/detalleCurso
 
+Login
+Verbo GET
+http://localhost:4000/api/usuario/inicioSesion
+
+JSON de entrada
+    {
+        "carnet": "201512345",
+        "clave": "123"
+    }
+
+JSON de retorno
+    {
+        "msg": "true"
+    }
+o si fuera falso
+    {
+        "msg": "false"
+    }
 */
 //------------------- Rutas -------------------
 
