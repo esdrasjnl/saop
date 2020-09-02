@@ -68,7 +68,7 @@ usuarioCtrl.deleteUser = async function(req,res,next){
 
 usuarioCtrl.loginUsuario = async function(req,res,next){
     const { carnet, clave } = req.body;
-    const sql = `select * from usuario where carnet = ${carnet} and clave = ${clave}`;
+    const sql = `select * from usuario where carnet = ${carnet} and clave = '${clave}'`;
     mysqldb.connection.query(sql, (error, result) => {
         if(error) throw error;
         if(result.length > 0){
