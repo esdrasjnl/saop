@@ -26,10 +26,12 @@ export class LoginComponent implements OnInit {
 
   loguear()
   {
+    //imprimir cosas jajaj hay se lo quitas
     console.log(this.carnet,this.password);
     this.datos.carnet=this.carnet;
     this.datos.password=this.password;
     console.log(this.datos);
+
     this.service.getusuario(this.datos)
     .subscribe(
       res => {

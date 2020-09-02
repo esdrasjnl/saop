@@ -11,6 +11,7 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
+  //este comentario se lo agregue solo para hacer el comit 
   getusuario(usuario)
   {
     console.log(usuario);
