@@ -9,6 +9,13 @@ export class PerfilComponent implements OnInit {
 
   constructor() { }
 
+  carnet: string ="";
+  nombre:string="";
+  apellido: string="";
+  cui: string="";
+  password:string="";
+  carrera:string="";
+  
   ngOnInit() {
   }
 
