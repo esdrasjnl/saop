@@ -1,0 +1,30 @@
+
+
+  <table style="margin: 0 auto;">
+    <tr>
+        <td>
+        </td>
+        <td>
+            <div class="form-group">
+                <p class="text-warning"></p>
+                <h4 class="p-3 mb-2 bg-warning text-dark">LOGIN</h4>
+              </div>
+            <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Carnet Estudiantil</label>
+                  <input name="cajac" [(ngModel)]="carnet" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <small id="emailHelp" class="form-text text-muted">No mostraremos su correo a menos que desea compartirlo.</small>
+                </div>
+                <div class="form-group">
+                  <label  for="exampleInputPassword1">Contraseña</label>
+                  <input name="cajap" [(ngModel)]="password" type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Recordar Contraseña</label>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="loguear()">Ingresar</button>
+              </form>
+        </td>
+ </tr>
+  </table>

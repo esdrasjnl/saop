@@ -66,4 +66,20 @@ usuarioCtrl.deleteUser = async function(req,res,next){
     });
 }
 
+usuarioCtrl.loginUsuario = async function(req,res,next){
+    const { carnet, clave } = req.body;
+    console.log(req.body);
+    const sql = `select * from usuario where carnet = ${carnet} and clave = '${clave}'`;
+    console.log(sql);
+        mysqldb.connection.query(sql, (error, results) => {
+        if(error) throw error;
+        if(results.length >= 0){
+            res.json(results);
+        } else {
+            res.send('No hay resultados');
+        }
+    });
+
+} 
+
 module.exports=usuarioCtrl;

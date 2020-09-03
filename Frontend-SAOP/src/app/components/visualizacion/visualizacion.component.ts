@@ -15,20 +15,18 @@ export class VisualizacionComponent implements OnInit {
     ) { }
   
   respuesta: any = [];
-  respuesta1: any = [];
+
   datos = {
     carnet: '',
     codigo_curso: ''
   };
 
-  usuario: string ="";
-  cursos: any=[]
+  cursos: any=[];
   nombrecurso:string="";
   descripcion:string="";
   creditos="";
   estado="";
-  carnet = "201213223"
-  arreglocurso:modelocurso[]=[];
+  carnet = "201213223";
   
   ngOnInit() {
     this.obtenerCursos();
@@ -56,6 +54,7 @@ export class VisualizacionComponent implements OnInit {
       res => {
         this.nombrecurso = res[0].nombre_curso;
         this.creditos = res[0].creditos;
+        
         if(res[0].estado == 1)
         {
           this.estado = 'CURSO APROBADO';
