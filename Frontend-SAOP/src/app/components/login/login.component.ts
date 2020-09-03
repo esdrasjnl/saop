@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   datos = {
     carnet:0 ,
-    password:''
+    clave:''
   };
 
   password:string="";
@@ -28,15 +28,16 @@ export class LoginComponent implements OnInit {
   loguear()
   {
     this.datos.carnet=this.carnet;
-    this.datos.password=this.password;
+    this.datos.clave=this.password;
     console.log(this.datos);
 
     this.service.getusuario(this.datos)
     .subscribe(
       res => {
-       if(res != false)
+       if(res != "")
        {
          this.respuesta = res[0];
+         console.log(this.respuesta);
          this.almacenarDatos();
          this.router.navigate(['/principal']);
        }
@@ -52,16 +53,21 @@ export class LoginComponent implements OnInit {
 
   almacenarDatos()
 {
-  localStorage.setItem('nombre',this.respuesta[0]);
-  localStorage.setItem('apellido',this.respuesta[1]);
-  localStorage.setItem('carnet',this.respuesta[2]);
-  console.log(localStorage.getItem('nombre'));
+  localStorage.setItem('carnet',this.respuesta.carnet);
+  localStorage.setItem('nombre',this.respuesta.nombre);
+  localStorage.setItem('apellidos',this.respuesta.apellidos);
+  localStorage.setItem('CUI',this.respuesta.CUI);
+  localStorage.setItem('clave',this.respuesta.clave);
+  localStorage.setItem('ref_codigo_carrera',this.respuesta.ref_codigo_carrera);
+
+  
+  console.log(localStorage.getItem('carnet'));
+
 }
 
 limpiar()
 {
-  this.datos.carnet = 0;
-  this.datos.password = '';
+  this.password = '';
 }
 }
 
