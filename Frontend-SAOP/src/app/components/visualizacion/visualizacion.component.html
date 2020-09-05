@@ -1,0 +1,47 @@
+<table style="margin: 0 auto;">
+    <tr>
+        <td>
+        </td>
+        <td>
+          
+<div class="form-group">
+    <p class="text-warning"></p>
+    <h4 class="p-3 mb-2 bg-warning text-dark">VISUALIZACION DE CURSOS DETALLADOS</h4>
+  </div>
+  <label class="control-label">Elija el curso que desea visualizar</label>
+  <div class="form-group">
+    <select class="custom-select">
+       
+        <option *ngFor="let curso of cursos" value="1" (click)="recibirCurso(curso)">{{curso.nombre_curso}}</option>
+    </select>
+</div>
+  
+  
+  <div class="form-group">
+  </div>
+  
+
+  <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header text-warning"><h3 class="card-title text-warning">{{nombrecurso}}</h3></div>
+    <div class="card-body">
+      <h5 class="card-title text-warning">Descripcion</h5>
+      <p class="card-text"> {{descripcion}}</p>
+      <h5 class="card-title text-warning">Cantidad de Creditos</h5>
+      <p class="card-text">{{creditos}}</p>
+      <h5 class="card-title text-warning">Estado</h5>
+      <p class="card-text">{{estado}}</p>
+    
+    </div>
+  </div>
+
+
+
+
+
+
+         </td>
+          <td>
+          </td>
+    </tr>
+  
+</table>
