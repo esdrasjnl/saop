@@ -4,6 +4,7 @@ import {VisualizacionComponent} from "./components/visualizacion/visualizacion.c
 import {HomeComponent} from "./components/home/home.component";
 import {LoginComponent} from "./components/login/login.component";
 import { PrincipalComponent } from './components/principal/principal.component';
+import { PerfilComponent} from './components/perfil/perfil.component'
 
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
   {
     path: 'principal',
     component: PrincipalComponent
+  }
+  ,
+  {
+    path: 'perfil',
+    component: PerfilComponent
   }
 ];
 

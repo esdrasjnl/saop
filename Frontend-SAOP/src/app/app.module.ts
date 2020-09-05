@@ -10,6 +10,7 @@ import {  HttpClientModule} from '@angular/common/http';
 import {CursoService} from './services/curso.service';
 import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PrincipalComponent } from './components/principal/principal.component';
     VisualizacionComponent,
     HomeComponent,
     LoginComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
