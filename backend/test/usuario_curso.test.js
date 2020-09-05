@@ -21,5 +21,21 @@ describe("Express usuario_curso",async ()=>{
           assert(typeof ususuario_curso.getUsuarioCurso,'function');
           done();
         });
-    })
+    });
+    it("TestCursodetalle post request",done=>{
+       request(app.use(ususuario_curso))
+       .post("{carnet: 2023,codigo_curso:281}")
+       .end((err,response)=>{
+          assert(typeof ususuario_curso,'object');
+          done();
+       });
+    });
+    it("TestCursodetallefunction post request", done=>{
+       request(app.use(ususuario_curso))
+       .post("{carnet:2023,codigo_curso:281}")
+       .end((err,response)=>{
+         assert(typeof ususuario_curso.getDetalleCurso,'function');
+         done();
+       });
+    });
 })
