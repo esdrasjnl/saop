@@ -6,7 +6,7 @@ const { response } = require("express");
 var app = express();
 
 describe("Express usuarios",async ()=>{
-  it("Handles GET request /id",done=>{
+  it("TEstgetUser GET request /id",done=>{
      request(app.use(usuarios))
      .get('/2023')
      .end((err,response)=>{
@@ -15,7 +15,7 @@ describe("Express usuarios",async ()=>{
          done();
      })
   });
-  it("Handles2 GET request /id",done=>{
+  it("TestGetUserFunction GET request /id",done=>{
       request(app.use(usuarios))
       .get('/2023')
       .end((err,response)=>{
