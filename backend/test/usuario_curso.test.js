@@ -14,4 +14,12 @@ describe("Express usuario_curso",async ()=>{
         done();
       });
     });
+    it("TestCursoFunction GET request /id", done=>{
+        request(app.use(ususuario_curso))
+        .get("/091")
+        .end((err,response)=>{
+          assert(typeof ususuario_curso.getUsuarioCurso,'function');
+          done();
+        });
+    })
 })
