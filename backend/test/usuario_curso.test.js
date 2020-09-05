@@ -22,7 +22,7 @@ describe("Express usuario_curso",async ()=>{
           done();
         });
     });
-    it("TestCursodetalle post request",done=>{
+    it("TestCursodetalle POST request /detalleCurso",done=>{
        request(app.use(ususuario_curso))
        .post("{carnet: 2023,codigo_curso:281}")
        .end((err,response)=>{
@@ -30,7 +30,7 @@ describe("Express usuario_curso",async ()=>{
           done();
        });
     });
-    it("TestCursodetallefunction post request", done=>{
+    it("TestCursodetallefunction POST request /detalleCurso", done=>{
        request(app.use(ususuario_curso))
        .post("{carnet:2023,codigo_curso:281}")
        .end((err,response)=>{

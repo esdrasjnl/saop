@@ -15,7 +15,7 @@ describe("Express usuarios", async () => {
         done();
       });
   });
-  
+
   it("TestGetUserFunction GET request /id", (done) => {
     request(app.use(usuarios))
       .get("/2023")
@@ -36,16 +36,7 @@ describe("Express usuarios", async () => {
     request(app.use(usuarios))
       .post("{carnet: 2023,clave:123}")
       .end((err, response) => {
-        assert(typeof usuarios.inicioSesion, "functoion");
-        done();
-      });
-  });
-
-  it("TestCursoUsiarioFuction POST request /inicioSesion", (done) => {
-    request(app.use(usuarios))
-      .post("{carnet: 2023,clave:123}")
-      .end((err, response) => {
-        assert(typeof usuarios.inicioSesion, "functoion");
+        assert(typeof usuarios.inicioSesion, "function");
         done();
       });
   });
