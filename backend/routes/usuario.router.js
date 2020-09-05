@@ -9,5 +9,5 @@ router.get('/obtener/:id',usuario.getUsuarioId);
 router.get('/obtenerUsuario/:carnet',usuario.getUserForcarnet);
 router.post('/agregar',usuario.postUsuario);
 router.delete('/eliminar/:carnet',usuarioCtrl.deleteUser);
-router.get('/inicioSesion',usuarioCtrl.loginUsuario);
+router.post('/inicioSesion',usuarioCtrl.loginUsuario);
 module.exports=router;
