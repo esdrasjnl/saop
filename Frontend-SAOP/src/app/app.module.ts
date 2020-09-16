@@ -11,6 +11,7 @@ import {CursoService} from './services/curso.service';
 import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     HomeComponent,
     LoginComponent,
     PrincipalComponent,
-    PerfilComponent
+    PerfilComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
