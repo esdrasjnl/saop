@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PerfilComponent } from './perfil.component';
 
 describe('PerfilComponent', () => {
-  let component: PerfilComponent;
+  let component2: PerfilComponent;
   let fixture: ComponentFixture<PerfilComponent>;
 
   beforeEach(async(() => {
@@ -15,11 +15,11 @@ describe('PerfilComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PerfilComponent);
-    component = fixture.componentInstance;
+    component2 = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component2).toBeTruthy();
   });
 });
