@@ -23,4 +23,33 @@ describe('VisualizacionComponent', () => {
   it('should create', () => {
     expect(component2).toBeTruthy();
   });
+
+  describe('obtenerCursos',()=>{
+    it('visualizacion', () => {
+const cursos =[] as any;
+//var s = new component.obtenerCursos();
+var s =new  VisualizacionComponent(component2.service,component2.router);
+spyOn(s,'obtenerCursos').and.returnValue(cursos);
+component2.obtenerCursos();
+expect(component2.error).toBeFalsy;
+expect(component2.cursos).toEqual(cursos);
+      
+    });
+  })
+
+  describe('Recibir cursos',()=>{
+    it('visualizacion detallada curso', () => {
+     const datos = {
+        carnet: '',
+        codigo_curso: ''
+      };
+var s =new  VisualizacionComponent(component2.service,component2.router);
+spyOn(s,'recibirCurso').and.returnValue();
+component2.recibirCurso(datos);
+expect(component2.error).toBeFalsy;
+expect(component2.datos).toEqual(datos);
+      
+    });
+  })
+
 });

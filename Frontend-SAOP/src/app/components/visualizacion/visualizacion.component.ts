@@ -11,11 +11,12 @@ import { modelocurso } from '../../models/modelocurso';
 export class VisualizacionComponent implements OnInit {
 
   constructor(
-    private service:CursoService,private router:Router
+    public service:CursoService,public router:Router
     ) { }
   
   respuesta: any = [];
-
+  public error=false;
+  public error1=false;
   datos = {
     carnet: '',
     codigo_curso: ''
@@ -40,7 +41,7 @@ export class VisualizacionComponent implements OnInit {
         this.cursos = res;
 
       },
-      err => console.log(err)
+      err => this.error=true
     )
   }
 
