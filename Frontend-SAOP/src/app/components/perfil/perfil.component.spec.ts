@@ -10,12 +10,12 @@ describe('PerfilComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[
+      imports: [
         HttpClientTestingModule, RouterTestingModule.withRoutes([]),
-      ReactiveFormsModule,FormsModule],
-      declarations: [ PerfilComponent ]
+        ReactiveFormsModule, FormsModule],
+      declarations: [PerfilComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -28,21 +28,38 @@ describe('PerfilComponent', () => {
     expect(component2).toBeTruthy();
   });
 
-  describe('perfil',()=>{
+  describe('perfil', () => {
+    
     it('Llenar campos', () => {
-     const  carnet=null ;
-     const nombre=null ;
-     const apellido=null ;
-     const cui=null ;
-     const password=null ;
-     const carrera=null ;
-component2.llenarCampos();
-expect(component2.carnet).toEqual(carnet);
-expect(component2.nombre).toEqual(nombre);
-expect(component2.apellido).toEqual(apellido);
-expect(component2.cui).toEqual(cui);
-expect(component2.password).toEqual(password); 
-expect(component2.carrera).toEqual(carrera);     
+      const carnet = null;
+      const nombre = null;
+      const apellido = null;
+      const cui = null;
+      const password = null;
+      const carrera = null;
+      component2.llenarCampos();
+      expect(component2.carnet).toEqual(carnet);
+      expect(component2.nombre).toEqual(nombre);
+      expect(component2.apellido).toEqual(apellido);
+      expect(component2.cui).toEqual(cui);
+      expect(component2.password).toEqual(password);
+      expect(component2.carrera).toEqual(carrera);
+    });
+
+    it('Prueba Unitaria llenar campos debe de fallar', () => {
+      const carnet = '201213223';
+      const nombre = null;
+      const apellido = null;
+      const cui = '0';
+      const password = null;
+      const carrera = null;
+      component2.llenarCampos();
+      expect(component2.carnet).toEqual(carnet);
+      expect(component2.nombre).toEqual(nombre);
+      expect(component2.apellido).toEqual(apellido);
+      expect(component2.cui).toEqual(cui);
+      expect(component2.password).toEqual(password);
+      expect(component2.carrera).toEqual(carrera);
     });
   })
 

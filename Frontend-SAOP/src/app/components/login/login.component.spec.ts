@@ -10,12 +10,12 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[
+      imports: [
         HttpClientTestingModule, RouterTestingModule.withRoutes([]),
-      ReactiveFormsModule,FormsModule],
-      declarations: [ LoginComponent ]
+        ReactiveFormsModule, FormsModule],
+      declarations: [LoginComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -28,19 +28,33 @@ describe('LoginComponent', () => {
     expect(component2).toBeTruthy();
   });
 
-  describe('Prueba Login',()=>{
-    it('Realizar prueba', function() {
-const datos = {
-  carnet:0,
-  clave:''
-};
-var s =new  LoginComponent(component2.service,component2.router);
-spyOn(s,'loguear').and.returnValue();
-component2.loguear;
-expect(component2.error).toBeFalsy;
-expect(component2.datos).toEqual(datos);
-      
+  describe('Prueba Login', () => {
+    it('Realizar prueba', function () {
+      const datos = {
+        carnet: 0,
+        clave: ''
+      };
+      var s = new LoginComponent(component2.service, component2.router);
+      spyOn(s, 'loguear').and.returnValue();
+      component2.loguear;
+      expect(component2.error).toBeFalsy;
+      expect(component2.datos).toEqual(datos);
+
     });
+  
+    it('Realiza pueba unitaria login que debe de fallar por que espera que al inicio no tenga esos valores',function()
+    {
+      const datos = {
+        carnet:201213223,
+        clave: 'astrid'
+      };
+      var s = new LoginComponent(component2.service, component2.router);
+      spyOn(s, 'loguear').and.returnValue();
+      component2.loguear;
+      expect(component2.error).toBeFalsy;
+      expect(component2.datos).toEqual(datos);
+    });
+    
   });
 
 });
