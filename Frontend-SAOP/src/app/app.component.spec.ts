@@ -23,13 +23,13 @@ describe('AppComponent', () => {
   it(`should have as title 'Frontend-SAOP'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Frontend-SAOP');
+    expect(app.title).toEqual('Se esperaba Frontend-SAOP');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Frontend-SAOP app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('Se esperaba Frontend-SAOP');
   });
 });
