@@ -27,4 +27,23 @@ describe('PerfilComponent', () => {
   it('should create', () => {
     expect(component2).toBeTruthy();
   });
+
+  describe('perfil',()=>{
+    it('Llenar campos', () => {
+     const  carnet=null ;
+     const nombre=null ;
+     const apellido=null ;
+     const cui=null ;
+     const password=null ;
+     const carrera=null ;
+component2.llenarCampos();
+expect(component2.carnet).toEqual(carnet);
+expect(component2.nombre).toEqual(nombre);
+expect(component2.apellido).toEqual(apellido);
+expect(component2.cui).toEqual(cui);
+expect(component2.password).toEqual(password); 
+expect(component2.carrera).toEqual(carrera);     
+    });
+  })
+
 });
