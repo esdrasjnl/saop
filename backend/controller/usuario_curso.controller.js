@@ -14,13 +14,13 @@ userCourseCtrl.getUsuarioCurso=async function(req,res,next){
         mysqldb.connection.query(sql, (error, results) => {
         if(error) throw error;
         if(results.length >= 0){
-            res.json(results);
+            return res.json(results);
         } else {
-            res.send('No hay resultados');
+            return res.send('No hay resultados');
         }
     });
 }
-userCourseCtrl.getDetalleCurso=async function(req,res,next){
+userCourseCtrl.getDetalleCurso= function(req,res,next){
     const objeto={
         carnet:req.body.carnet,
         codigo_curso:req.body.codigo_curso
@@ -35,7 +35,7 @@ userCourseCtrl.getDetalleCurso=async function(req,res,next){
     `and curso.codigo_curso=${req.body.codigo_curso}`;
 
         mysqldb.connection.query(sql, [req.body.carnet,req.body.codigo_curso],(error, results) => {         
-            if(error) throw error;
+
             if(results.length >= 0){
                     res.json(results);
             } else {

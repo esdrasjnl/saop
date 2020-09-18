@@ -1,43 +1,48 @@
 const assert=require("assert");
 const request=require("supertest");
 const ususuario_curso=require("../routes/usuario_curso.router");
+const controller=require("../controller/usuario_curso.controller");
 var express = require('express');
 var app = express();
 
+
 describe("Express usuario_curso",async ()=>{
-    it("TetsCurso_usuario GET request /id", done=>{
+   /* it("TetsCurso_usuario GET request /id", done=>{
       request(app.use(ususuario_curso))
       .get("/091")
       .end(function (err,res){
-        assert(typeof ususuario_curso,'object');
+        assert.equal(typeof controller,'object');
         done();
       });
-    });
-    it("TestCursoFunction GET request /id", done=>{
+    });*/
+    /*it("TestCursoFunction GET request /id", done=>{
         request(app.use(ususuario_curso))
         .get("/091")
         .expect(200)
         .end((err,response)=>{
-          assert(typeof ususuario_curso.getUsuarioCurso,'function');
+          assert.equal(typeof controller.getUsuarioCurso,'function');
           done();
         });
-    });
+    });*/
     it("TestCursodetalle GET request /detalleCurso",done=>{
         request(app.use(ususuario_curso))
-       .get("/detalleCurso/obtener")
-       .send({nada:2342})
+       .get("f/obtener")
+       .type("json")
+       .send("/4")
       // .expect('Content-Type',/json/)
        .expect(200)
-       .end(async (err,response,body)=>{
-         console.log(body);
-        assert.equal(typeof ususuario_curso,"function");
-        done();
-        /*if (err) {
+       .end( (err,res)=>{
+        // console.log(res);
+       //  assert.equal(typeof controller,'object');
+        // console.log(res.body);
+        // res.status.should.equal(200);
+      // done();
+        if (err) {
           done(err);
         }else{
           done();
-        }*/
-       })
+        }
+       });
     });
     it("TestCursodetallefunction POST request /detalleCurso", done=>{
        request(app.use(ususuario_curso))
