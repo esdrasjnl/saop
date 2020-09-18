@@ -9,7 +9,7 @@ Before(() => {
   page = new AppPage();
 });
 
-Given(/^I am on the home page$/, {timeout:60 * 5000}, async () => {
+Given(/^I am on the home page$/, {timeout:60 * 8000}, async () => {
   await page.navigateTo();
 });
 
