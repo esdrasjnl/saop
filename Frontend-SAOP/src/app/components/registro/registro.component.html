@@ -1,1 +1,106 @@
-<p>registro works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-60 col-lg-7 col-xl-60" style="margin-top: 20px; margin-left: 75px;">
+            <!-- Default form register -->
+            <form class="text-center border border-light p-4 mdb-color darken-3 rounded mb-1"
+                style="height: 700px; width: 1000px;" action="#!">
+                <div class="row">
+                    <div class="col-md-10 col-lg-7 col-xl-4">
+                        <p></p>
+                    </div>
+                    <div class="col-md-10 col-lg-7 col-xl-4">
+                        <div class="form-group">
+                            <p class="text-warning"></p>
+                            <h4 class="p-3 mb-2 bg-warning text-dark">REGISTRO USUARIO</h4>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-lg-7 col-xl-3">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col-md-5 col-lg-5 col-xl-5" style=" margin-left:-50px;">
+                        <!-- First name -->
+                        <p class="h4 mb-1" style="font-size: 16px; font-weight: bold; color:white; margin-top: 10px;">
+                            CARNÉ:</p>
+                    </div>
+                    <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-80px;">
+                        <input name="cajan" [(ngModel)]="carnet" type="text" id="defaultRegisterFormFirstName"
+                            class="form-control" placeholder="CARNÉ">
+                    </div>
+
+
+                </div>
+
+                <div class="form-row mb-3">
+                    <div class="col-md-5 col-lg-5 col-xl-5" style=" margin-left:-50px;">
+                        <!-- last name -->
+                        <p class="h4 mb-4" style="font-size: 16px; font-weight: bold; color:white;  margin-top: 10px;">
+                            NOMBRE:</p>
+                    </div>
+                    <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-80px;">
+                        <input name="cajaa" [(ngModel)]="nombre" type="text" id="defaultRegisterFormFirstName"
+                            class="form-control" placeholder="NOMBRE">
+                    </div>
+
+                </div>
+
+
+                <div class="form-row mb-3">
+
+                    <div class="col-md-5 col-lg-5 col-xl-5" style=" margin-left:-50px;">
+                        <p class="h4 mb-4" style="font-size: 16px; font-weight: bold; color:white;  margin-top: 10px;">
+                            APELLIDOS:</p>
+                    </div>
+                    <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-80px;">
+                        <input [(ngModel)]="apellido" name="apellid" type="text" id="defaultRegisterFormFirstName"
+                            class="form-control" placeholder="APELLIDO">
+                    </div>
+
+
+                </div>
+
+                <div class="form-row mb-3">
+                    <div class="col-md-5 col-lg-5 col-xl-5" style=" margin-left:-50px;">
+                        <!-- last name -->
+                        <p class="h4 mb-4" style="font-size: 16px; font-weight: bold; color:white;  margin-top: 10px;">
+                            CUI:</p>
+                    </div>
+                    <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-80px;">
+                        <input name="cajacui" [(ngModel)]="cui" type="text" id="defaultRegisterFormFirstName"
+                            class="form-control" placeholder="CUI">
+                    </div>
+
+                </div>
+
+                <div class="form-row mb-3">
+                    <div class="col-md-5 col-lg-5 col-xl-5" style=" margin-left:-90px;">
+                        <p class="h4 mb-4" style="font-size: 16px; font-weight: bold; color:white;  margin-top: 10px;">
+                            CONTRASEÑA:</p>
+                    </div>
+                    <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-41px;">
+                        <input name="cajacarrera" [(ngModel)]="clave" type="text" id="defaultRegisterFormFirstName"
+                            class="form-control" placeholder="CONTRASEÑA">
+                    </div>
+                </div>
+
+                <div class="form-row mb-3">
+                    <div class="col-md-5 col-lg-5 col-xl-5" style=" margin-left:-90px;">
+                        <p class="h4 mb-4" style="font-size: 16px; font-weight: bold; color:white;  margin-top: 10px;">
+                            CARRERA:</p>
+                    </div>
+                    <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-41px;">
+                        <input name="cajacarrera" [(ngModel)]="carrera" type="text" id="defaultRegisterFormFirstName"
+                            class="form-control" placeholder="CARRERA">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="registrar()">REGISTRAR USUARIO</button>
+            </form>
+
+
+        </div>
+    </div>
+</div>

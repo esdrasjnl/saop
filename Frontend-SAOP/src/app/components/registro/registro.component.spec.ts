@@ -12,9 +12,9 @@ describe('RegistroComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegistroComponent ]
+      declarations: [RegistroComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -29,25 +29,25 @@ describe('RegistroComponent', () => {
 
 
 
-  
+
   describe('Prueba Registro', () => {
     it('Realizar prueba', function () {
       const datos = {
         carnet: 0,
-        clave: '',
-        nombre:'',
-        cui :'',
-       password : '',
-         carrera : '',
+        nombre: '',
+        apellido: '',
+        cui: '',
+        password: '',
+        carrera: '',
       };
       var s = new RegistroComponent(component.service, component.router);
-    //  spyOn(s, 'registrar').and.returnValue();
+      //  spyOn(s, 'registrar').and.returnValue();
       component.registrar;
       expect(component.error).toBeFalsy;
       expect(component.datos).toEqual(datos);
 
     });
-    
+
   });
 
 
