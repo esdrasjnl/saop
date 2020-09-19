@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistroComponent } from './registro.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 describe('RegistroComponent', () => {
   let component: RegistroComponent;
@@ -22,4 +26,29 @@ describe('RegistroComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+
+  
+  describe('Prueba Registro', () => {
+    it('Realizar prueba', function () {
+      const datos = {
+        carnet: 0,
+        clave: '',
+        nombre:'',
+        cui :'',
+       password : '',
+         carrera : '',
+      };
+      var s = new RegistroComponent(component.service, component.router);
+    //  spyOn(s, 'registrar').and.returnValue();
+      component.registrar;
+      expect(component.error).toBeFalsy;
+      expect(component.datos).toEqual(datos);
+
+    });
+    
+  });
+
+
 });

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UsuarioService  } from "../../services/usuario.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service:UsuarioService,public router:Router ) { }
 
   ngOnInit() {
   }
+
+   datos = {
+    carnet: 0,
+    clave: '',
+    nombre:'',
+    cui :'',
+   password : '',
+     carrera : '',
+  };
+
+ error=false;
+
+ registrar(){
+   
+ }
 
 }
