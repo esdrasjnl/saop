@@ -35,8 +35,8 @@ userCourseCtrl.getDetalleCurso= function(req,res,next){
     `and curso.codigo_curso=${req.body.codigo_curso}`;
 
         mysqldb.connection.query(sql, [req.body.carnet,req.body.codigo_curso],(error, results) => {         
-
-            if(results.length >= 0){
+                console.log(results);
+            if(results.length>0){
                     res.json(results);
             } else {
                 res.send('No hay resultados');
