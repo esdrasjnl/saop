@@ -43,4 +43,10 @@ export class AppPage {
   ingresarPerfil() {
     return browser.get(browser.baseUrl + 'perfil') as Promise<any>;
   }
+
+  
+  ingresarregistro() {
+    return browser.get(browser.baseUrl + 'registro') as Promise<any>;
+  }
+
 }
