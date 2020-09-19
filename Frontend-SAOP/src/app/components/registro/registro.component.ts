@@ -19,10 +19,10 @@ export class RegistroComponent implements OnInit {
   datos = {
     carnet: 0,
     nombre: '',
-    apellido: '',
+    apellidos: '',
     cui: '',
-    password: '',
-    carrera: '',
+    clave: '',
+    ref_codigo_carrera:0
   };
 
   carnet: number;
@@ -30,7 +30,8 @@ export class RegistroComponent implements OnInit {
   apellido: string = "";
   cui: string = "";
   clave: string = "";
-  carrera: string = "";
+  carrera:number;
+  genero: string ="";
 
   error = false;
 
@@ -38,15 +39,18 @@ export class RegistroComponent implements OnInit {
 
     this.datos.carnet = this.carnet;
     this.datos.nombre = this.nombre;
-    this.datos.apellido = this.apellido;
+    this.datos.apellidos = this.apellido;
     this.datos.cui = this.cui;
-    this.datos.password = this.clave;
-    this.datos.carrera = this.carrera.toLowerCase();
+    this.datos.clave = this.clave;
+    this.datos.ref_codigo_carrera = this.carrera;
+
+    console.log(this.datos);
+    console.log(this.carrera);
 
     this.service.postRegistro(this.datos)
       .subscribe(
         res => {
-          if (res != "") {
+          if (res!== "") {
             alert("USUARIO REGISTRADO EXITOSAMENTE!");
           }
           else {
@@ -66,7 +70,7 @@ export class RegistroComponent implements OnInit {
     this.apellido = '';
     this.cui = '';
     this.clave = '';
-    this.carrera = '';
+    this.carrera=0;
   }
 
 }

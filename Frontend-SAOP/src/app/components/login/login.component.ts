@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
     this.service.getusuario(this.datos)
     .subscribe(
       res => {
+
+        console.log(res[0].carnet);
        if(res != "")
        {
          this.respuesta = res[0];
@@ -42,14 +44,16 @@ export class LoginComponent implements OnInit {
          this.almacenarDatos();
          this.router.navigate(['/principal']);
        }
-       else
+       else 
        {
          alert("USUARIO INCORRECTO, VUELVE A INTENTAR!");
          this.error=true;
        }
        this.limpiar();
       },
-      err => console.log(err)
+      err => {alert("USUARIO INCORRECTO, VUELVE A INTENTAR!")
+      this.error=true;
+    }
     )
   }
 

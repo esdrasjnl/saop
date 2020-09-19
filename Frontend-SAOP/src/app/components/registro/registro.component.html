@@ -93,8 +93,15 @@
                             CARRERA:</p>
                     </div>
                     <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-41px;">
-                        <input name="cajacarrera" [(ngModel)]="carrera" type="text" id="defaultRegisterFormFirstName"
-                            class="form-control" placeholder="CARRERA">
+                        <select  name="fem"  [(ngModel)]="carrera"class="browser-default custom-select custom-select-lg mb-1">
+                            <option value="001">Ciencias y Sistemas</option>
+                            <option value="002">Industrial</option>
+                            <option value="003">Mecanica Electrica</option>
+                            <option value="004">Quimica</option>
+                            <option value="005">Electronica</option>
+                            <option value="006">Mecanica Industrial</option>
+                            <option value="007">Ambiental</option>
+                          </select>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" (click)="registrar()">REGISTRAR USUARIO</button>
