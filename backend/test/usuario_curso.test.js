@@ -64,4 +64,18 @@ describe("Express usuario_curso",async ()=>{
          done();
        });
     });
+    it("TestCursodetalle GET request /detalleCurso",done=>{
+      request(app.use(ususuario_curso))
+     .post("/detalleCurso")
+     .send({"carnet":"2023","codigo_curso":"281"})
+     .expect(200)
+     .end( (err,res)=>{
+     // console.log(res.body);
+      if (err) {
+        done(err);
+      }else{
+        done();
+      }
+     });
+  });
 })

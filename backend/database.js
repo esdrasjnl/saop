@@ -3,8 +3,8 @@ const connect={};
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'dbsamines',
-  database: 'soap_fase2'
+  password: '110896',
+  database: 'saop_fase2'
 });
 exports.connection = connection;
 // Comprobar conexion
