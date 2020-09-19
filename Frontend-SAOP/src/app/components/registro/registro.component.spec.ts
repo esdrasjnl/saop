@@ -35,10 +35,10 @@ describe('RegistroComponent', () => {
       const datos = {
         carnet: 0,
         nombre: '',
-        apellido: '',
+        apellidos: '',
         cui: '',
-        password: '',
-        carrera: '',
+        clave: '',
+        ref_codigo_carrera:0
       };
       var s = new RegistroComponent(component.service, component.router);
       //  spyOn(s, 'registrar').and.returnValue();
