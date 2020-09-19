@@ -17,7 +17,7 @@ export class RegistroService {
 
     postRegistro(usuario)
     {
-      return this.http.post<any>(`${this.api}/usuarioCurso/detalleCurso`,usuario);
+      return this.http.post<any>(`${this.api}/usuario/agregar`,usuario);
     }
    
 }
