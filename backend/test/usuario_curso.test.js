@@ -11,12 +11,11 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(cors());
 
-
 describe("Express usuario_curso",async ()=>{
     it("TetsCurso_usuario GET request /id", done=>{
       request(app.use(ususuario_curso))
       .get("/")
-      .send("091")
+      .send('091')
       .end(function (err,res){
         assert(typeof ususuario_curso,'object');
         done();
@@ -35,16 +34,10 @@ describe("Express usuario_curso",async ()=>{
     it("TestCursodetalle GET request /detalleCurso",done=>{
         request(app.use(ususuario_curso))
        .get("/detalleCurso/obtener")
-       .type("json")
-       .send({"carnet":"2023","codigo_curso":"281"})
-      // .expect('Content-Type',/json/)
+       .send({"carnet":"2023"})
        .expect(200)
        .end( (err,res)=>{
-       // console.log(res);
-       //  assert.equal(typeof controller,'object');
-        // console.log(res.body);
-        // res.status.should.equal(200);
-      // done();
+       // console.log(res.body);
         if (err) {
           done(err);
         }else{
