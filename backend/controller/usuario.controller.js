@@ -40,7 +40,8 @@ usuarioCtrl.postUsuario=async function(req,res,next){
 
     mysqldb.connection.query(sql, UsuarioObj, error => {
         if(error) throw error;
-        res.send('Usuario Creado');
+        //res.send('Usuario Creado');
+        res.json({'estado': 'true'});
     });
 }
 
