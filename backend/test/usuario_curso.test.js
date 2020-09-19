@@ -12,7 +12,6 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(cors());
 
 
-
 describe("Express usuario_curso",async ()=>{
     it("TetsCurso_usuario GET request /id", done=>{
       request(app.use(ususuario_curso))
