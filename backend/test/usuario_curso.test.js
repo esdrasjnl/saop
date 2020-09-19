@@ -33,8 +33,8 @@ describe("Express usuario_curso",async ()=>{
   });
     it("TestCursodetalle GET request /detalleCurso",done=>{
         request(app.use(ususuario_curso))
-       .get("/detalleCurso/obtener")
-       .send({"carnet":"2023"})
+       .post("/detalleCurso")
+       .send({"carnet":"2023","codigo_curso":"281"})
        .expect(200)
        .end( (err,res)=>{
        // console.log(res.body);
@@ -45,6 +45,17 @@ describe("Express usuario_curso",async ()=>{
         }
        });
     });
+    it("TestErrorDetalleCurso GET request /detalleCurso",done=>{
+      request(app.use(ususuario_curso))
+     .post("/detalleCurso")
+     .send({"carnet":"2023"})
+     .expect(200)
+     .end( (err,res)=>{
+      console.log(res.body);
+      assert.equal(res.body.hola,'fail');
+      done();
+     });
+  });
     it("TestCursodetallefunction POST request /detalleCurso", done=>{
        request(app.use(ususuario_curso))
        .post("{carnet:2023,codigo_curso:281}")
