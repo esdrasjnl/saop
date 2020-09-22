@@ -9,12 +9,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private service:UsuarioService,private router:Router ) { }
+  constructor( public service:UsuarioService,public router:Router ) { }
 
   ngOnInit(): void {
   }
 
   respuesta:any = [];
+  public error=false;
 
   datos = {
     carnet:0 ,
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
     this.service.getusuario(this.datos)
     .subscribe(
       res => {
+
+        console.log(res[0].carnet);
        if(res != "")
        {
          this.respuesta = res[0];
@@ -41,13 +44,16 @@ export class LoginComponent implements OnInit {
          this.almacenarDatos();
          this.router.navigate(['/principal']);
        }
-       else
+       else 
        {
          alert("USUARIO INCORRECTO, VUELVE A INTENTAR!");
+         this.error=true;
        }
        this.limpiar();
       },
-      err => console.log(err)
+      err => {alert("USUARIO INCORRECTO, VUELVE A INTENTAR!")
+      this.error=true;
+    }
     )
   }
 

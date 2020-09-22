@@ -38,9 +38,15 @@ usuarioCtrl.postUsuario=async function(req,res,next){
         ref_codigo_carrera: req.body.ref_codigo_carrera
     };
 
+    console.log(req.body.carnet);
+    if(req.body.carnet === undefined  || req.body.cui === undefined || req.body.nombre === undefined || req.body.apellidos === undefined || req.body.clave === undefined ){
+        return res.json({'Msg':'Faltan Datos'});
+        //console.log(req.body.carnet);
+    }
     mysqldb.connection.query(sql, UsuarioObj, error => {
         if(error) throw error;
-        res.send('Usuario Creado');
+        //res.send('Usuario Creado');
+        res.json({'estado': 'true'});
     });
 }
 
