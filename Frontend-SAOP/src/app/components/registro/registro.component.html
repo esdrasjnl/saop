@@ -1,3 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <img src="./assets/logo.png" height="60px">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login">Inicio de sesion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="registro">Registro</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+      </form>
+    </div>
+  </nav>
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-60 col-lg-7 col-xl-60" style="margin-top: 20px; margin-left: 75px;">
@@ -93,7 +117,8 @@
                             CARRERA:</p>
                     </div>
                     <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-41px;">
-                        <select  name="cajacarrera"  [(ngModel)]="carrera"class="browser-default custom-select custom-select-lg mb-1">
+                        <select name="cajacarrera" [(ngModel)]="carrera"
+                            class="browser-default custom-select custom-select-lg mb-1">
                             <option value="001">Ciencias y Sistemas</option>
                             <option value="002">Industrial</option>
                             <option value="003">Mecanica Electrica</option>
@@ -101,10 +126,11 @@
                             <option value="005">Electronica</option>
                             <option value="006">Mecanica Industrial</option>
                             <option value="007">Ambiental</option>
-                          </select>
+                        </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary"  id = "Registro" (click)="registrar()">REGISTRAR USUARIO</button>
+                <button type="submit" class="btn btn-primary" id="Registro" (click)="registrar()">REGISTRAR
+                    USUARIO</button>
             </form>
 
 

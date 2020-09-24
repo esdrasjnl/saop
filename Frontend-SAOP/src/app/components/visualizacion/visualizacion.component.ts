@@ -27,7 +27,7 @@ export class VisualizacionComponent implements OnInit {
   descripcion:string="";
   creditos="";
   estado="";
-  carnet = "201213223";
+  carnet = localStorage.getItem('carnet');
   
   ngOnInit() {
     this.obtenerCursos();
