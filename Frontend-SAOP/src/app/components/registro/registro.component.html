@@ -28,7 +28,7 @@
                             CARNÉ:</p>
                     </div>
                     <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-80px;">
-                        <input name="cajan" [(ngModel)]="carnet" type="text" id="defaultRegisterFormFirstName"
+                        <input name="cajac" [(ngModel)]="carnet" type="text" id="defaultRegisterFormFirstName"
                             class="form-control" placeholder="CARNÉ">
                     </div>
 
@@ -42,7 +42,7 @@
                             NOMBRE:</p>
                     </div>
                     <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-80px;">
-                        <input name="cajaa" [(ngModel)]="nombre" type="text" id="defaultRegisterFormFirstName"
+                        <input name="cajan" [(ngModel)]="nombre" type="text" id="defaultRegisterFormFirstName"
                             class="form-control" placeholder="NOMBRE">
                     </div>
 
@@ -56,7 +56,7 @@
                             APELLIDOS:</p>
                     </div>
                     <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-80px;">
-                        <input [(ngModel)]="apellido" name="apellid" type="text" id="defaultRegisterFormFirstName"
+                        <input [(ngModel)]="apellido" name="cajap" type="text" id="defaultRegisterFormFirstName"
                             class="form-control" placeholder="APELLIDO">
                     </div>
 
@@ -82,7 +82,7 @@
                             CONTRASEÑA:</p>
                     </div>
                     <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-41px;">
-                        <input name="cajacarrera" [(ngModel)]="clave" type="text" id="defaultRegisterFormFirstName"
+                        <input name="cajapas" [(ngModel)]="clave" type="text" id="defaultRegisterFormFirstName"
                             class="form-control" placeholder="CONTRASEÑA">
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                             CARRERA:</p>
                     </div>
                     <div class="col-md-5 col-lg-3 col-xl-3" style=" margin-left:-41px;">
-                        <select  name="fem"  [(ngModel)]="carrera"class="browser-default custom-select custom-select-lg mb-1">
+                        <select  name="cajacarrera"  [(ngModel)]="carrera"class="browser-default custom-select custom-select-lg mb-1">
                             <option value="001">Ciencias y Sistemas</option>
                             <option value="002">Industrial</option>
                             <option value="003">Mecanica Electrica</option>
@@ -104,7 +104,7 @@
                           </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="registrar()">REGISTRAR USUARIO</button>
+                <button type="submit" class="btn btn-primary"  id = "Registro" (click)="registrar()">REGISTRAR USUARIO</button>
             </form>
 
 

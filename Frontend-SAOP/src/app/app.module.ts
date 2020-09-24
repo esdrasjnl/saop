@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { VisualizacionPensumComponent } from './components/visualizacion-pensum/visualizacion-pensum.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RegistroComponent } from './components/registro/registro.component';
     LoginComponent,
     PrincipalComponent,
     PerfilComponent,
-    RegistroComponent
+    RegistroComponent,
+    VisualizacionPensumComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import {LoginComponent} from "./components/login/login.component";
 import { PrincipalComponent } from './components/principal/principal.component';
 import { PerfilComponent} from './components/perfil/perfil.component'
 import { RegistroComponent } from './components/registro/registro.component';
+import {VisualizacionPensumComponent}  from './components/visualizacion-pensum/visualizacion-pensum.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,11 @@ const routes: Routes = [
   {
     path: 'registro',
     component: RegistroComponent
+  }
+  ,
+  {
+    path: 'pensum',
+    component: VisualizacionPensumComponent
   }
 ];
 
