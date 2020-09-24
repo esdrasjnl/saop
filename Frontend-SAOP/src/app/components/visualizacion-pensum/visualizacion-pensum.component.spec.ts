@@ -46,4 +46,23 @@ describe('VisualizacionPensumComponent', () => {
     });
   })
 
+
+  describe('obtenerPensum Incorrecto', () => {
+    it('visualizacion pensum', () => {
+      const cursos = null;
+       var s = new VisualizacionPensumComponent(component.service, component.router);
+      spyOn(s, 'obtenerCursos').and.returnValue(cursos);
+      component.obtenerCursos();
+      expect(component.error).toBeFalsy;
+      expect(component.cursos).toEqual(cursos);
+
+    });
+  })
+
+  describe('Respuesta InCorrecta', () => {
+    it('visualizacion pensum Respuesta', () => {
+      expect(component.respuestas).toEqual(false);
+    });
+  })
+
 });
