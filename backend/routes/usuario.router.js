@@ -10,4 +10,5 @@ router.get('/obtenerUsuario/:carnet',usuario.getUserForcarnet);
 router.post('/agregar',usuario.postUsuario);
 router.delete('/eliminar/:carnet',usuarioCtrl.deleteUser);
 router.post('/inicioSesion',usuarioCtrl.loginUsuario);
+router.get('/verPensum',usuario.getPensum);
 module.exports=router;
