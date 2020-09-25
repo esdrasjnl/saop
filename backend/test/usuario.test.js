@@ -104,5 +104,18 @@ describe("Express usuarios", async () => {
        }
      });
    });
- 
+   it("Test_visualizacion_pensum_Error GET request /verPensum",done=>{
+    request(app.use(usuarios))
+    .get('/verPensum')
+    .send({"carrera":"5"})
+    .expect(200)
+    .end((err,res)=>{
+      console.log(res.body);
+      if(err){
+        done(err);
+      }else{
+        done();
+      }
+    });
+   });
 });
