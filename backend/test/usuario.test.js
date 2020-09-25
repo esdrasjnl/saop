@@ -75,4 +75,34 @@ describe("Express usuarios", async () => {
         done();
       });
   });
+    //==================PRUEBA UNITARIA SOBRE VISUALIZACION DE PENSUM=============
+    it("Test_visualiza_pensum_OK GET request /verPensum",done=>{
+      request(app.use(usuarios))
+     .get("/verPensum") //endpoint en router
+     .send({"carrera":"1"})
+     .expect(200)
+     .end((err,res)=>{
+       console.log(res.body);
+       if (err) {
+         done(err);
+       }else{
+         done();
+       }
+     });
+   });
+   it("Test_visualizacion_pensum_Vacio GET request /verPensum",done=>{
+     request(app.use(usuarios))
+     .get("/verPensum")
+     .send({})
+     .expect(200)
+     .end((err,res)=>{
+       console.log(res.body);
+       if(err){
+         done(err);
+       }else{
+         done();
+       }
+     });
+   });
+ 
 });

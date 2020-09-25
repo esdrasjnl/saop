@@ -78,19 +78,5 @@ describe("Express usuario_curso",async ()=>{
       }
      });
   });
-  //==================PRUEBA UNITARIA SOBRE VISUALIZACION DE PENSUM=============
-  it("Test_visualiza_pensum_OK GET request /verPensum",done=>{
-     request(app.use(usuario))
-    .get("/verPensum") //endpoint en router
-    .send({"carrera":"1"})
-    .expect(200)
-    .end((err,res)=>{
-      if (err) {
-        done(err);
-      }else{
-        done();
-      }
-    });
-  });
 
 })
