@@ -2,7 +2,7 @@ const bodyparser = require('body-parser');
 const assert=require("assert");
 const request=require("supertest");
 const ususuario_curso=require("../routes/usuario_curso.router");
-const controller=require("../controller/usuario_curso.controller");
+const usuario=require('../routes/usuario.router');
 var express = require('express');
 var app = express();
 var cors = require('cors');
@@ -78,4 +78,19 @@ describe("Express usuario_curso",async ()=>{
       }
      });
   });
+  //==================PRUEBA UNITARIA SOBRE VISUALIZACION DE PENSUM=============
+  it("Test_visualiza_pensum_OK GET request /verPensum",done=>{
+     request(app.use(usuario))
+    .get("/verPensum") //endpoint en router
+    .send({"carrera":"1"})
+    .expect(200)
+    .end((err,res)=>{
+      if (err) {
+        done(err);
+      }else{
+        done();
+      }
+    });
+  });
+
 })
