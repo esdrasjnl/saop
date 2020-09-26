@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CursoService  } from "../../services/curso.service";
+import { CursoService } from "../../services/curso.service";
 import { Router } from '@angular/router';
 import { modelocurso } from '../../models/modelocurso';
 
@@ -11,12 +11,12 @@ import { modelocurso } from '../../models/modelocurso';
 export class VisualizacionPensumComponent implements OnInit {
 
   constructor(
-    public service:CursoService,public router:Router
-    ) { }
-  
+    public service: CursoService, public router: Router
+  ) { }
+
   respuesta: any = [];
-  respuestas=true;;
-  public error=false;
+  respuestas = true;;
+  public error = false;
 
   datos = {
     carnet: '',
@@ -24,33 +24,32 @@ export class VisualizacionPensumComponent implements OnInit {
   };
 
   datoscurso = {
-    carrera: 1
+    carrera: localStorage.getItem('ref_codigo_carrera')
   };
-  cursos: any=[];
-  nombrecurso:string="";
-  descripcion:string="";
-  creditos="";
-  estado="";
+  cursos: any = [];
+  nombrecurso: string = "";
+  descripcion: string = "";
+  creditos = "";
+  estado = "";
   carnet = "";
-  
+
   ngOnInit() {
     this.obtenerCursos();
   }
 
-  obtenerCursos()
-  {
+  obtenerCursos() {
     console.log(this.datoscurso);
     this.service.getPensum(this.datoscurso)
-    
-    .subscribe(
-      res => {
-        console.log(res);
-        this.cursos = res;
-        console.log(res[0]);
 
-      },
-      err => this.error=true
-    )
+      .subscribe(
+        res => {
+          console.log(res);
+          this.cursos = res;
+          console.log(res[0]);
+
+        },
+        err => this.error = true
+      )
   }
 
 
