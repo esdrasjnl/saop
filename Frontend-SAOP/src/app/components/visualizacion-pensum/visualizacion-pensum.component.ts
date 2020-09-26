@@ -23,6 +23,9 @@ export class VisualizacionPensumComponent implements OnInit {
     codigo_curso: ''
   };
 
+  datoscurso = {
+    carrera: 1
+  };
   cursos: any=[];
   nombrecurso:string="";
   descripcion:string="";
@@ -36,7 +39,18 @@ export class VisualizacionPensumComponent implements OnInit {
 
   obtenerCursos()
   {
+    console.log(this.datoscurso);
+    this.service.getPensum(this.datoscurso)
     
+    .subscribe(
+      res => {
+        console.log(res);
+        this.cursos = res;
+        console.log(res[0]);
+
+      },
+      err => this.error=true
+    )
   }
 
 
