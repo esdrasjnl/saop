@@ -9,7 +9,7 @@ Feature: BDD PARA PAGINA DE LOGIN
     And me dirige a pagina principal
     And Abro la pagina de Perfil
     And Veo el titulo de Perfil
-    When Veo que mi carnet coincida
+    Then Veo que mi carnet coincida
 
     Scenario: Login Erroneo
     Given Abro la pagina de Login
