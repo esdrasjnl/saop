@@ -36,11 +36,17 @@ usuarioCtrl.postPensum = async function(req,res,next){
     INNER JOIN carrera car ON curso_pensum.ref_codigo_carrera=car.codigo_carrera
     WHERE car.codigo_carrera = ${carrera}`;
     mysqldb.connection.query(sql, (error, result) => {
-        if(error) throw error;
+       /* if(error) throw error;
         if(result.length > 0){
             res.json(result);
         } else {
             res.send('No hay resultados');
+        }*/
+        if(result === undefined){
+            res.json({error:"Noresult"})
+        } else {
+            res.json(result);
+            
         }
     });
 }

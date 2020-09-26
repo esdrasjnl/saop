@@ -2,7 +2,7 @@ const bodyparser = require('body-parser');
 const assert=require("assert");
 const request=require("supertest");
 const ususuario_curso=require("../routes/usuario_curso.router");
-const controller=require("../controller/usuario_curso.controller");
+const usuario=require('../routes/usuario.router');
 var express = require('express');
 var app = express();
 var cors = require('cors');
@@ -78,4 +78,5 @@ describe("Express usuario_curso",async ()=>{
       }
      });
   });
+
 })
