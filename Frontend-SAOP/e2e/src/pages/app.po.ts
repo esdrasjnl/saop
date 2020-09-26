@@ -28,13 +28,23 @@ export class AppPage {
     return browser.get(browser.baseUrl + 'registro') as Promise<any>;
   }
 
+  ingresarPensum() {
+    return browser.get(browser.baseUrl + 'pensum') as Promise<any>;
+  }
 
+
+  //OBTENER TITULOS
+  
   getTitleText() {
     return element(by.css('app-root h1')).getText() as Promise<string>;
   }
 
   obtenerTitulo(){
     return element(by.css('h4')).getText() as Promise<any>;
+  }
+
+  obtenerNombreCurso(){
+    return element(by.css('h3')).getText() as Promise<any>;
   }
 
   obtenerCarnetUsuario(){

@@ -18,7 +18,7 @@ When(/^Veo el titulo de Perfil$/,{timeout:5000}, async () => {
     expect(await page.obtenerTitulo()).to.equal('MI PERFIL');
 });
 
-Then(/^Veo que mi carnet coincida$/,{timeout:5000}, async () => {
+When(/^Veo que mi carnet coincida$/,{timeout:5000}, async () => {
   expect(await page.obtenerCarnetUsuario()).to.equal('');
   
 });
