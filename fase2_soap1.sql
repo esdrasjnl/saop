@@ -10,6 +10,8 @@ CREATE TABLE carrera(
 CREATE TABLE curso(
 	codigo_curso INTEGER NOT NULL PRIMARY KEY,
 	nombre_curso VARCHAR(50),
+	detalle		 VARCHAR(50),
+	prerrequisitos VARCHAR(50),
 	creditos     INTEGER,
     CONSTRAINT CHK_creditos  CHECK(creditos > 0)
 );
@@ -43,6 +45,7 @@ CREATE TABLE usuario_curso(
 	ref_carnet INTEGER NOT NULL,
 	ref_codigo_curso   INTEGER NOT NULL,
 	estado             INTEGER NOT NULL,
+	str_comentario     VARCHAR(250),
     CONSTRAINT CHK_estado  CHECK(estado >=0 and estado <=1),
     CONSTRAINT fk_usuario  FOREIGN KEY(ref_carnet) REFERENCES usuario(carnet) ON DELETE CASCADE,
     CONSTRAINT fk_curso    FOREIGN KEY(ref_codigo_curso)   REFERENCES curso(codigo_curso) ON DELETE CASCADE

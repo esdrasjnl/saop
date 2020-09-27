@@ -12,6 +12,9 @@ describe('RegistroComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule, RouterTestingModule.withRoutes([]),
+        ReactiveFormsModule, FormsModule],
       declarations: [RegistroComponent]
     })
       .compileComponents();

@@ -31,7 +31,6 @@ export class RegistroComponent implements OnInit {
   cui: string = "";
   clave: string = "";
   carrera:number;
-  genero: string ="";
 
   error = false;
 

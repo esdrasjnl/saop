@@ -29,7 +29,7 @@ describe("Express usuarios", async () => {
        });
   });
 
-  it("TestgetUserError POST request /agregar", (done) => {
+  /*it("TestgetUserError POST request /agregar", (done) => {
     request(app.use(usuarios))
       .post("/agregar")
       .send({"carnet": "2015201221","nombre": "Marcos","apellidos": "Torres","cui":"8888889","clave": "123A","ref_codigo_carrera": "001"})
@@ -39,7 +39,7 @@ describe("Express usuarios", async () => {
         assert.equal(res.body.Msg,'Faltan Datos');
         done();
        });
-  });
+  });*/
 
   it("TEstgetUser GET request /id", (done) => {
     request(app.use(usuarios))
@@ -75,4 +75,47 @@ describe("Express usuarios", async () => {
         done();
       });
   });
+    //==================PRUEBA UNITARIA SOBRE VISUALIZACION DE PENSUM=============
+    it("Test_visualiza_pensum_OK GET request /verPensum",done=>{
+      request(app.use(usuarios))
+     .get("/verPensum") //endpoint en router
+     .send({"carrera":"1"})
+     .expect(200)
+     .end((err,res)=>{
+       console.log(res.body);
+       if (err) {
+         done(err);
+       }else{
+         done();
+       }
+     });
+   });
+   it("Test_visualizacion_pensum_Vacio GET request /verPensum",done=>{
+     request(app.use(usuarios))
+     .get("/verPensum")
+     .send({})
+     .expect(200)
+     .end((err,res)=>{
+       console.log(res.body);
+       if(err){
+         done(err);
+       }else{
+         done();
+       }
+     });
+   });
+   it("Test_visualizacion_pensum_Error GET request /verPensum",done=>{
+    request(app.use(usuarios))
+    .get('/verPensum')
+    .send({"carrera":"5"})
+    .expect(200)
+    .end((err,res)=>{
+      console.log(res.body);
+      if(err){
+        done(err);
+      }else{
+        done();
+      }
+    });
+   });
 });

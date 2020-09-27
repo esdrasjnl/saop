@@ -27,7 +27,7 @@ export class VisualizacionComponent implements OnInit {
   descripcion:string="";
   creditos="";
   estado="";
-  carnet = "201213223";
+  carnet = localStorage.getItem('carnet');
   
   ngOnInit() {
     this.obtenerCursos();
@@ -38,6 +38,7 @@ export class VisualizacionComponent implements OnInit {
     this.service.getCurso(this.carnet)
     .subscribe(
       res => {
+        console.log(res);
         this.cursos = res;
 
       },

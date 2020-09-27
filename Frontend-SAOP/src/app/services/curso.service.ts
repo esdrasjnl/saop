@@ -25,7 +25,11 @@ export class CursoService {
     return this.http.post<any>(`${this.api}/usuarioCurso/detalleCurso`,curso);
   }
   
-
+  getPensum(datos)
+  {
+    console.log(datos);
+    return this.http.post<any>(`${this.api}/usuario/verPensum`,datos);
+  }
   
 }
 

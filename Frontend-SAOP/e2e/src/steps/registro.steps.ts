@@ -9,10 +9,19 @@ Before(() => {
   page = new AppPage();
 });
 
-Given(/^Abro la pagina de Registro$/, {timeout:60 * 5000}, async () => {
+Given(/^Abro la pagina de Registro$/, {timeout:5000}, async () => {
     await page.ingresarregistro();
 });
 
-When(/^Veo el titulo$/, async () => {
-    expect(await page.obtenerTitulo()).to.equal('REGISTRO');
+When(/^Veo el titulo de Registro$/, async () => {
+    expect(await page.obtenerTitulo()).to.equal('REGISTRO USUARIO');
 });
+
+When(/^Los campos deben de estar vacios$/, async () => {
+  expect(await page.campoCarnet()).to.equal('');
+  expect(await page.campoNombre()).to.equal('');
+  expect(await page.campoApellido()).to.equal('');
+  expect(await page.campoCui()).to.equal('');
+  expect(await page.campoPassword()).to.equal('');
+});
+

@@ -2,8 +2,8 @@ const mysql=require("mysql");
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '110896',
-    database: 'saop_fase2'
+    password: 'dbsamines',
+    database: 'soap_fase2'
 });
 
 before(done =>{

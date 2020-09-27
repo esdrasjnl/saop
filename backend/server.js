@@ -56,6 +56,30 @@ o si fuera falso
     {
         "msg": "false"
     }
+
+//Ver cursos de pensum
+http://localhost:4000/api/usuario/verPensum
+
+JSON de entrada
+{
+    "carrera": "1"
+}
+
+JSON de salida
+[
+    {
+        "codigo_curso": 3,
+        "nombre_curso": "Orientacion y Liderazgo",
+        "creditos": 1,
+        "prerequisitos": "Ninguno",
+        "detalle": "Curso que fomenta las aptitudes de orientacion y liderazgo",
+        "codigo_pensum": 1,
+        "pensum": "ingenieria industrial",
+        "codigo_carrera": 1,
+        "carrera": "Ingenieria en Ciencias y Sistemas"
+    }
+]
+
 */
 //------------------- Rutas -------------------
 

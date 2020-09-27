@@ -16,5 +16,5 @@ Given(/^I am on the home page$/, {timeout:60 * 8000}, async () => {
 When(/^I do nothing$/, () => {});
 
 Then(/^I should see the title$/, async () => {
-  expect(await page.getTitleText()).to.equal('home works!');
+  expect(await page.getTitleText()).to.equal('BIENVENIDOS A SAOP');
 });
