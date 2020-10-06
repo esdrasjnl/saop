@@ -10,6 +10,10 @@ Before(() => {
   page = new AppPage();
 });
 
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
 When(/^Abro la pagina de Perfil$/, {timeout:5000}, async () => {
     await page.ingresarPerfil();
 });
@@ -18,7 +22,12 @@ When(/^Veo el titulo de Perfil$/,{timeout:5000}, async () => {
     expect(await page.obtenerTitulo()).to.equal('MI PERFIL');
 });
 
-Then(/^Veo que mi carnet coincida$/,{timeout:5000}, async () => {
-  expect(await page.obtenerCarnetUsuario()).to.equal('');
-  
+When(/^Veo que mi carnet coincida$/,{timeout:5000}, async () => {
+  delay(500);
+  expect(await page.obtenerCarnetUsuario()).to.equal('201503986');
+});
+
+Then(/^Cierro Sesion$/,{timeout:5000}, async () => {
+  const ingreso = element(by.id("cerrar"));
+  await ingreso.click();
 });

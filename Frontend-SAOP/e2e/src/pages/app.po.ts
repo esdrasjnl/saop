@@ -48,7 +48,9 @@ export class AppPage {
   }
 
   obtenerCarnetUsuario(){
-    return element(by.name('cajacarnet')).getText() as Promise<any>;
+    var carnet = element(by.name('cajacarnet')).getAttribute('value') as Promise<any>;
+    return carnet;
+    
   }
 
   /* REVISAR CAMPOS VACIOS DE REGISTRO */
