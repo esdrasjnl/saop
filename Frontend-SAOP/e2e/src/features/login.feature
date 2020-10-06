@@ -1,4 +1,5 @@
 Feature: BDD PARA PAGINA DE LOGIN
+  Como usuario deseo iniciar sesion y luego revisar mis datos en el perfil 
 
   Scenario: Login Exitoso
     Given Abro la pagina de Login 
@@ -9,9 +10,11 @@ Feature: BDD PARA PAGINA DE LOGIN
     And me dirige a pagina principal
     And Abro la pagina de Perfil
     And Veo el titulo de Perfil
-    Then Veo que mi carnet coincida
+    And Veo que mi carnet coincida
+    Then Cierro Sesion 
 
     Scenario: Login Erroneo
+  
     Given Abro la pagina de Login
     When Veo el titulo de login
     And No completo el campo carnet
