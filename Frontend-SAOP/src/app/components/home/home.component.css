@@ -1,0 +1,16 @@
+.centrar
+{
+    text-align: center;
+}
+
+.titulo
+{
+    position: relative;
+    top:150px;
+}
+
+.imagenes
+{
+    position: relative;
+    top:300px;
+}
