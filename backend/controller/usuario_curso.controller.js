@@ -20,6 +20,24 @@ userCourseCtrl.getUsuarioCurso=async function(req,res,next){
         }
     });
 }
+
+userCourseCtrl.agregaUsuarioCurso = async function(req,res,next){
+    const sql = 'insert into usuario_curso set?';
+
+    const UsuarioObj = {
+        ref_carnet: req.body.ref_carnet,
+        ref_codigo_curso: req.body.ref_codigo_curso,
+        estado: req.body.estado,
+        str_comentario: req.body.str_comentario
+    };
+
+    mysqldb.connection.query(sql, UsuarioObj, error => {
+        if(error) throw error;
+        //res.send('Curso Agregado al Usuario');
+        res.json({"Registro": "true"});
+    });
+}
+
 userCourseCtrl.getDetalleCurso= async function(req,res,next){
     const objeto={
         carnet:req.body.carnet,
