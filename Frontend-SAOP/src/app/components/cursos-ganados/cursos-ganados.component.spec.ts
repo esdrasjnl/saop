@@ -29,15 +29,24 @@ describe('CursosGanadosComponent', () => {
   });
 
   describe('Prueba Cursos Ganados', () => {
-    it('Compueba que los datos al inicio esten vacios', function () {
+    it('Comprueba que los datos al inicio esten vacios', function () {
       const datos = {
-        ref_carnet: 0,
+        ref_carnet: '',
         ref_codigo_curso: 0,
         ref_estado: 1,
         str_comentario: ''
       };
 
       expect(component.datos).toEqual(datos);
+    });
+
+  });
+
+  describe('TDD obtener cursos', () => {
+    it('Compueba que al llamar el metodo obtenerCursos retorne true con los datos enviados', function () {
+      component.carnet = '201213223';
+
+      expect(component.obtenerCursos).toBeTruthy();
     });
 
   });

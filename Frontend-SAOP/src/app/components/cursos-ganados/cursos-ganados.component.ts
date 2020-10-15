@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CursosGanadosService } from "../../services/cursos-ganados.service";
+import {CursoService} from "../../services/curso.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,19 +9,35 @@ import { Router } from '@angular/router';
 })
 export class CursosGanadosComponent implements OnInit {
 
-  constructor( public service:CursosGanadosService ,public router:Router ) { }
+  constructor( public service:CursoService,public router:Router) { }
 
   ngOnInit() {
+    this.obtenerCursos();
   }
 
   datos = {
-    ref_carnet:0 ,
+    ref_carnet: '' ,
     ref_codigo_curso:0,
     ref_estado:1,
     str_comentario:''
   };
 
-  carnet: number;
+  carnet: string = '';
   codigo_curso: number;
+  cursos: any=[];
+  public error=false;
+
+  obtenerCursos()
+  {
+    this.service.getCurso(this.carnet)
+    .subscribe(
+      res => {
+        console.log(res);
+        this.cursos = res;
+        return true;
+      },
+      err => this.error=true
+    )
+  }
 
 }

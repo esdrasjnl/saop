@@ -37,7 +37,6 @@ describe('LoginComponent', () => {
       var s = new LoginComponent(component2.service, component2.router);
       spyOn(s, 'loguear').and.returnValue();
       component2.loguear;
-      expect(component2.error).toBeFalsy;
       expect(component2.datos).toEqual(datos);
 
     });
