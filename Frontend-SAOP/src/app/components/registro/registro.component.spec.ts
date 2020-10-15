@@ -34,7 +34,21 @@ describe('RegistroComponent', () => {
 
 
   describe('Prueba Registro', () => {
-    it('Realizar prueba', function () {
+
+    it('Verifica que los datos esten vacios al inicio', function () {
+      const datos = {
+        carnet: 0,
+        nombre: '',
+        apellidos: '',
+        cui: '',
+        clave: '',
+        ref_codigo_carrera:0
+      };
+      expect(component.datos).toEqual(datos);
+
+    });
+
+    it('Verifica que se envien bien los datos', function () {
       const datos = {
         carnet: 0,
         nombre: '',
@@ -46,7 +60,7 @@ describe('RegistroComponent', () => {
       var s = new RegistroComponent(component.service, component.router);
       //  spyOn(s, 'registrar').and.returnValue();
       component.registrar;
-      expect(component.error).toBeFalsy;
+      expect(component.error).toBeFalsy();
       expect(component.datos).toEqual(datos);
 
     });

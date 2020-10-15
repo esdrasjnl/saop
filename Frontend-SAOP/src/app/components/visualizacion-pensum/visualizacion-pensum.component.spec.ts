@@ -47,21 +47,26 @@ describe('VisualizacionPensumComponent', () => {
   })
 
 
-  describe('obtenerPensum Incorrecto', () => {
+  describe('obtenerPensum', () => {
     it('visualizacion pensum', () => {
       const cursos = null;
        var s = new VisualizacionPensumComponent(component.service, component.router);
       spyOn(s, 'obtenerCursos').and.returnValue(cursos);
       component.obtenerCursos();
-      expect(component.error).toBeFalsy;
-      expect(component.cursos).toEqual(cursos);
+      expect(component.error).toBeFalsy();
+
+    });
+
+    it('Verifica que la variable de cursos no este null', () => {
+      const cursos = null;
+      expect(component.cursos).not.toEqual(cursos);
 
     });
   })
 
   describe('Respuesta InCorrecta', () => {
     it('visualizacion pensum Respuesta', () => {
-      expect(component.respuestas).toEqual(false);
+      expect(component.respuestas).toBeTruthy();
     });
   })
 

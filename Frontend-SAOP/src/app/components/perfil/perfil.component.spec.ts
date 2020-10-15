@@ -28,15 +28,15 @@ describe('PerfilComponent', () => {
     expect(component2).toBeTruthy();
   });
 
-  describe('perfil', () => {
+  describe('Prueba unitaria perfil', () => {
     
-    it('Llenar campos', () => {
-      const carnet = null;
-      const nombre = null;
-      const apellido = null;
-      const cui = null;
-      const password = null;
-      const carrera = null;
+    it('Verifica campos al inicio deben de estar vacios', () => {
+      const carnet = '';
+      const nombre = '';
+      const apellido = '';
+      const cui = '';
+      const password = '';
+      const carrera = '';
       component2.llenarCampos();
       expect(component2.carnet).toEqual(carnet);
       expect(component2.nombre).toEqual(nombre);
@@ -46,18 +46,18 @@ describe('PerfilComponent', () => {
       expect(component2.carrera).toEqual(carrera);
     });
 
-    it('Prueba Unitaria llenar campos debe de fallar', () => {
+    it('Verifica que los campos esten vacios comparando con valores', () => {
       const carnet = '201213223';
-      const nombre = null;
-      const apellido = null;
+      const nombre = '';
+      const apellido = '';
       const cui = '0';
-      const password = null;
-      const carrera = null;
+      const password = '';
+      const carrera = '';
       component2.llenarCampos();
-      expect(component2.carnet).toEqual(carnet);
+      expect(component2.carnet).not.toEqual(carnet);
       expect(component2.nombre).toEqual(nombre);
       expect(component2.apellido).toEqual(apellido);
-      expect(component2.cui).toEqual(cui);
+      expect(component2.cui).not.toEqual(cui);
       expect(component2.password).toEqual(password);
       expect(component2.carrera).toEqual(carrera);
     });
