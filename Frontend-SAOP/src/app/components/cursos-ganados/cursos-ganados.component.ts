@@ -11,10 +11,6 @@ export class CursosGanadosComponent implements OnInit {
 
   constructor( public service:CursoService,public router:Router) { }
 
-  ngOnInit() {
-    this.obtenerCursos();
-  }
-
   datos = {
     ref_carnet: '' ,
     ref_codigo_curso:0,
@@ -22,10 +18,14 @@ export class CursosGanadosComponent implements OnInit {
     str_comentario:''
   };
 
-  carnet: string = '';
+  carnet = localStorage.getItem('carnet');
   codigo_curso: number;
   cursos: any=[];
   public error=false;
+
+  ngOnInit() {
+    this.obtenerCursos();
+  }
 
   obtenerCursos()
   {

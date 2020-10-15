@@ -40,7 +40,6 @@ export class VisualizacionComponent implements OnInit {
       res => {
         console.log(res);
         this.cursos = res;
-
       },
       err => this.error=true
     )
