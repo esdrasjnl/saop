@@ -10,7 +10,14 @@ export class PrincipalComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.llenar();
   }
 
+  nombre:string="";
+
+  llenar()
+  {
+    this.nombre = localStorage.getItem('nombre');
+  }
 
 }
