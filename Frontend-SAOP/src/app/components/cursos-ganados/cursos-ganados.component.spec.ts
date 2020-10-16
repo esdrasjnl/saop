@@ -46,7 +46,7 @@ describe('CursosGanadosComponent', () => {
     it('Compueba que al llamar el metodo obtenerCursos retorne true con los datos enviados', function () {
       component.carnet = '201213223';
 
-      expect(component.obtenerCursos).toBeTruthy();
+      expect(component.obtenerCursos()).toBeFalsy();
     });
 
   });

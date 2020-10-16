@@ -18,6 +18,10 @@ export class CursosGanadosComponent implements OnInit {
     str_comentario:''
   };
 
+  datoscurso = {
+    carrera: localStorage.getItem('ref_codigo_carrera')
+  };
+
   carnet = localStorage.getItem('carnet');
   codigo_curso: number;
   cursos: any=[];
@@ -27,17 +31,19 @@ export class CursosGanadosComponent implements OnInit {
     this.obtenerCursos();
   }
 
-  obtenerCursos()
-  {
-    this.service.getCurso(this.carnet)
-    .subscribe(
-      res => {
-        console.log(res);
-        this.cursos = res;
-        return true;
-      },
-      err => this.error=true
-    )
+  obtenerCursos() {
+    console.log(this.datoscurso);
+    this.service.getPensum(this.datoscurso)
+
+      .subscribe(
+        res => {
+          console.log(res);
+          this.cursos = res;
+          console.log(res[0]);
+
+        },
+        err => this.error = true
+      )
   }
 
 }
