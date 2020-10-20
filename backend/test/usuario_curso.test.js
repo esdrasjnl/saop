@@ -38,7 +38,7 @@ describe("Express usuario_curso", async() => {
             .expect(200)
             .end((err, res) => {
                 // console.log(res.body);
-                // mensaje prueba
+                // mensaje prueba 02
                 if (err) {
                     done(err);
                 } else {
