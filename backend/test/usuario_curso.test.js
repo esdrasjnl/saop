@@ -96,7 +96,19 @@ describe("Express usuario_curso", async() => {
                 }
             });
     });
-    //------------------------Prueba unitaria para cursoGanado-------
-
+    //------------------------Prueba unitaria para Agregar cursoGanado-------
+    it("TestCursoGanado POST request /agregar",(done)=>{
+        request(app.use(ususuario_curso))
+        .post("/agregar")
+        .send({"ref_carnet":"2015201221","ref_codigo_curso":"19","estado":"1","str_comentario":"aprobado"})
+        .expect(200)
+        .end((err,res)=>{
+            if(err){
+                done(err);
+            }else{
+                done();
+            }
+        });
+    });
 
 })
