@@ -110,5 +110,18 @@ describe("Express usuario_curso", async() => {
             }
         });
     });
+    it("TestCursoGanadoParameterNotvalid POST request /agregar",(done)=>{
+        request(app.use(ususuario_curso))
+        .post("/agregar")
+        .send({"ref_carnet":"h","ref_codigo_curso":"19","estado":"1","str_comentario":"aprobado"})
+        .expect(200)
+        .end((err,res)=>{
+            if(err){
+                done(err);
+            }else{
+                done();
+            }
+        });
+    });
 
 })
