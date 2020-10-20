@@ -13,7 +13,23 @@ const usuarioCurso = require('./routes/usuario_curso.router');
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-app.use(cors());
+//app.use(cors());
+app.use(function(request, response, next){
+
+    response.header('Access-Control-Allow-Origin', '*');
+    response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+   //Handle Preflight 
+   if (reqest.method === 'OPTIONS') {
+      response.status(200).send();        
+   }
+   else {
+      next();
+   }
+
+});
+
 //------------------------------------------------
 
 
