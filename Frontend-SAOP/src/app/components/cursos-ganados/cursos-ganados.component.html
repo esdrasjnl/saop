@@ -43,19 +43,29 @@
             <div class="form-group">
                 <select class="custom-select">
 
-                    <option *ngFor="let curso of cursos" name="Curso" value="1">{{curso.nombre_curso}}</option>
+                    <option *ngFor="let curso of cursos" name="Curso" value="1" (click)="guardarCurso(curso)">
+                        {{curso.nombre_curso}}</option>
                 </select>
             </div>
-
-
-
-
-
-
-
-
-
         </td>
     </tr>
-
 </table>
+
+
+<div class="row">
+    <div *ngFor="let tarjeta of tarjetas" class="col-3">
+      <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header text-warning">
+          <h3 class="card-title text-warning">{{tarjeta.nombre_curso}}</h3>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-warning">Codigo Curso</h5>
+          <p class="card-text"> {{tarjeta.codigo_curso}}</p>
+          <h5 class="card-title text-warning">Cantidad de Creditos</h5>
+          <p class="card-text">{{tarjeta.creditos}}</p>
+          <h5 class="card-title text-warning">Descripcion</h5>
+          <p class="card-text">{{tarjeta.detalle}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
