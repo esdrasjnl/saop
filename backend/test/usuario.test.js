@@ -42,6 +42,19 @@ describe("Express usuarios", async() => {
           }
          });
     });
+    it("TestPostUserDataNotvalid POST REQUEST /agregar",(done)=>{
+        request(app.use(usuarios))
+        .post("/agregar")
+        .send({"carnet": "2016201221","nombre": "Marcos","apellidos": "Torres","cui":"soucui","clave": "123A","ref_codigo_carrera": "sistemas"})
+        .expect(200)
+        .end((err,res)=>{
+            if(err){
+                done(err);
+            }else{
+                done();
+            }
+        })
+    })
 
     it("TEstgetUser GET request /id", (done) => {
         request(app.use(usuarios))
