@@ -17,18 +17,23 @@ describe("Express usuario_curso", async() => {
             .get("/")
             .send('091')
             .end(function(err, res) {
-                assert(typeof ususuario_curso, 'object');
-                done();
+                if(err){
+                    done(err);
+                }else{
+                    done();
+                }
             });
     });
-    it("TestCursoFunction GET request /id", done => {
+    it("TetsCurso_usuarioParameter GET request /id", done => {
         request(app.use(ususuario_curso))
             .get("/")
-            .send("091")
-            .expect(200)
-            .end((err, response) => {
-                assert(typeof ususuario_curso.getUsuarioCurso, 'function');
-                done();
+            .send('')
+            .end(function(err, res) {
+                if(err){
+                    done(err);
+                }else{
+                    done();
+                }
             });
     });
     it("TestCursodetalle GET request /detalleCurso", done => {
@@ -79,5 +84,7 @@ describe("Express usuario_curso", async() => {
                 }
             });
     });
+    //------------------------Prueba unitaria para cursoGanado-------
+
 
 })
