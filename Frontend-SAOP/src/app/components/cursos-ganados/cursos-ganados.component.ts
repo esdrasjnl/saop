@@ -43,8 +43,7 @@ export class CursosGanadosComponent implements OnInit {
       )
   }
 
-  guardarCurso(curso) 
-  {
+  guardarCurso(curso) {
 
     const tarjeta = {
       nombre_curso: curso.nombre_curso,
@@ -53,34 +52,22 @@ export class CursosGanadosComponent implements OnInit {
       codigo_curso: curso.codigo_curso
     }
 
-    if(this.tarjetas.length == 0)
-    {
+    if (this.tarjetas.length == 0) {
       this.tarjetas.push(tarjeta);
-
-    console.log(this.tarjetas);
     }
-    else
-    {
+    else {
       for (let i = 0; i < this.tarjetas.length; i++) {
-        if(this.tarjetas[i].codigo_curso == curso.codigo_curso)
-        {
+        if (this.tarjetas[i].codigo_curso == curso.codigo_curso) {
           return 0;
         }
       }
       this.tarjetas.push(tarjeta);
-      
     }
-    
-      
-   
-
   }
 
-  eliminar(codigo) 
-  {
+  eliminar(codigo) {
     for (let i = 0; i < this.tarjetas.length; i++) {
-      if(this.tarjetas[i].codigo_curso == codigo)
-      {
+      if (this.tarjetas[i].codigo_curso == codigo) {
         this.tarjetas.splice(i, 1);
         console.log(this.tarjetas);
       }
