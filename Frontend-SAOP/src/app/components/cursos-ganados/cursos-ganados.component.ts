@@ -11,12 +11,7 @@ export class CursosGanadosComponent implements OnInit {
 
   constructor(public service: CursoService, public router: Router) { }
 
-  datos = {
-    ref_carnet: localStorage.getItem('ref_codigo_carrera'),
-    ref_codigo_curso: 0,
-    ref_estado: 1,
-    str_comentario: ''
-  };
+
 
 
 
@@ -48,7 +43,8 @@ export class CursosGanadosComponent implements OnInit {
       )
   }
 
-  guardarCurso(curso) {
+  guardarCurso(curso) 
+  {
 
     const tarjeta = {
       nombre_curso: curso.nombre_curso,
@@ -57,9 +53,38 @@ export class CursosGanadosComponent implements OnInit {
       codigo_curso: curso.codigo_curso
     }
 
-    this.tarjetas.push(tarjeta);
+    if(this.tarjetas.length == 0)
+    {
+      this.tarjetas.push(tarjeta);
 
+    console.log(this.tarjetas);
+    }
+    else
+    {
+      for (let i = 0; i < this.tarjetas.length; i++) {
+        if(this.tarjetas[i].codigo_curso == curso.codigo_curso)
+        {
+          return 0;
+        }
+      }
+      this.tarjetas.push(tarjeta);
+      
+    }
+    
+      
+   
 
+  }
+
+  eliminar(codigo) 
+  {
+    for (let i = 0; i < this.tarjetas.length; i++) {
+      if(this.tarjetas[i].codigo_curso == codigo)
+      {
+        this.tarjetas.splice(i, 1);
+        console.log(this.tarjetas);
+      }
+    }
   }
 
 }
