@@ -52,8 +52,7 @@ usuarioCtrl.postPensum = async function (req, res, next) {
 }
 
 usuarioCtrl.postUsuario = async function (req, res, next) {
-    const sql = 'insert into usuario set?';
-
+    let {carnet,nombre,apellidos,cui,clave,ref_codigo_carrera}=req.body;
     const UsuarioObj = {
         carnet: req.body.carnet,
         nombre: req.body.nombre,
@@ -62,17 +61,24 @@ usuarioCtrl.postUsuario = async function (req, res, next) {
         clave: req.body.clave,
         ref_codigo_carrera: req.body.ref_codigo_carrera
     };
-
-    console.log(req.body.carnet);
-    if (req.body.carnet === undefined || req.body.cui === undefined || req.body.nombre === undefined || req.body.apellidos === undefined || req.body.clave === undefined) {
-        return res.json({ 'Msg': 'Faltan Datos' });
-        //console.log(req.body.carnet);
-    }
-    mysqldb.connection.query(sql, UsuarioObj, error => {
-        if (error) throw error;
-        //res.send('Usuario Creado');
-        res.json({ 'estado': 'true' });
+    let validaParametro=!nombre || !apellidos || !clave ||!ref_codigo_carrera || isNaN(carnet) || isNaN(cui);
+    if(validaParametro){
+        return res.json({'estado':'Datos no validos o Faltan datos'});
+    }else{ 
+    const sql = 'insert into usuario set?';
+    const sqlvalida=`select count(*) as retorno from usuario where carnet=${carnet} or cui=${cui}`;
+    mysqldb.connection.query(sqlvalida,function(req,results){
+            var validar=results[0].retorno;
+            if(parseInt(validar)===0){// significa que no hay datos con el mismo carnet/cui registrado    
+                mysqldb.connection.query(sql, UsuarioObj, error => {
+                    if (error) throw error;
+                    res.json({ 'estado': 'true' });
+                });
+            }else{//ya hay datos con los mismos identificadores
+                res.json({'estado':'datos repetidos'});
+            }
     });
+    }
 }
 
 

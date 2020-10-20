@@ -34,10 +34,12 @@ describe("Express usuarios", async() => {
         .post("/agregar")
         .send({"carnet": "2015201221","nombre": "Marcos","apellidos": "Torres","cui":"8888889","clave": "123A","ref_codigo_carrera": "001"})
         .expect(200)
-        .end( (err,res)=>{
-          //console.log(res.body);
-          assert.equal(res.body.Msg,'Faltan Datos');
-          done();
+        .end((err,res)=>{
+          if(err){
+              done(err);
+          }else{
+              done();
+          }
          });
     });
 
