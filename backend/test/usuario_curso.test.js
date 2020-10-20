@@ -14,7 +14,7 @@ app.use(cors());
 describe("Express usuario_curso", async() => {
     it("TetsCurso_usuario GET request /id", done => {
         request(app.use(ususuario_curso))
-            .get("/")
+            .get("/:")
             .send('091')
             .end(function(err, res) {
                 if(err){
@@ -26,8 +26,20 @@ describe("Express usuario_curso", async() => {
     });
     it("TetsCurso_usuarioParameter GET request /id", done => {
         request(app.use(ususuario_curso))
-            .get("/")
+            .get("/:")
             .send('')
+            .end(function(err, res) {
+                if(err){
+                    done(err);
+                }else{
+                    done();
+                }
+            });
+    });
+    it("TetsCurso_usuarioNotFound GET request /id", done => {
+        request(app.use(ususuario_curso))
+            .get("/:")
+            .send('h')
             .end(function(err, res) {
                 if(err){
                     done(err);

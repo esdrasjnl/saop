@@ -10,7 +10,6 @@ userCourseCtrl.getUsuarioCurso = async function (req, res, next) {
         `INNER JOIN usuario ON usuario_curso.ref_carnet=usuario.carnet ` +
         `INNER JOIN curso ON  usuario_curso.ref_codigo_curso=codigo_curso ` +
         `WHERE usuario.carnet = '${id}'`;
-    console.log(sql);
     mysqldb.connection.query(sql, (error, results) => {
         if (error) throw error;
         if (results.length >= 0) {
