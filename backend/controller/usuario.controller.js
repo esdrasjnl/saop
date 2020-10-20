@@ -75,12 +75,18 @@ usuarioCtrl.postUsuario = async function (req, res, next) {
     });
 }
 
-usuarioCtrl.getUserForcarnet = async function (req, res, next) {
+
+usuarioCtrl.getUserForcarnet=async function(req,res,next){
     const { carnet } = req.params;
-    const sql = `select * from usuario where carnet = ${carnet}`;
+    //const sql = `select * from usuario where carnet = ${carnet}`;
+    const sql = `select usuario.carnet as Carnet, usuario.nombre, usuario.apellidos, usuario.cui, usuario.clave, carrera.nombre as Carrera, sum(curso.creditos) as Creditos from usuario
+    join usuario_curso on usuario_curso.ref_carnet = usuario.carnet 
+    join curso on curso.codigo_curso = usuario_curso.ref_codigo_curso
+    join carrera on carrera.codigo_carrera = usuario.ref_codigo_carrera
+    where usuario.carnet = ${carnet} and usuario_curso.estado = 1;`;
     mysqldb.connection.query(sql, (error, result) => {
-        if (error) throw error;
-        if (result.length > 0) {
+        if(error) throw error;
+        if(result.length > 0){
             res.json(result);
         } else {
             res.send('No hay resultados');
