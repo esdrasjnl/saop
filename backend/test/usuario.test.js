@@ -29,7 +29,7 @@ describe("Express usuarios", async() => {
             });
     });
 
-    /*it("TestgetUserError POST request /agregar", (done) => {
+    it("TestgetUserError POST request /agregar", (done) => {
       request(app.use(usuarios))
         .post("/agregar")
         .send({"carnet": "2015201221","nombre": "Marcos","apellidos": "Torres","cui":"8888889","clave": "123A","ref_codigo_carrera": "001"})
@@ -39,7 +39,7 @@ describe("Express usuarios", async() => {
           assert.equal(res.body.Msg,'Faltan Datos');
           done();
          });
-    });*/
+    });
 
     it("TEstgetUser GET request /id", (done) => {
         request(app.use(usuarios))
