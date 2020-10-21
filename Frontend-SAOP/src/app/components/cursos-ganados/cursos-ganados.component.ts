@@ -35,6 +35,7 @@ export class CursosGanadosComponent implements OnInit {
   tarjetas: any = [];
   datosC: any = [];
   enviar: string = "";
+  e: boolean = false;
 
   ngOnInit() {
     this.obtenerCursos();
@@ -86,6 +87,7 @@ export class CursosGanadosComponent implements OnInit {
       if (this.tarjetas[i].codigo_curso == codigo) {
         this.tarjetas.splice(i, 1);
         this.datosC.splice(i, 1);
+        this.e = true;
       }
     }
   }

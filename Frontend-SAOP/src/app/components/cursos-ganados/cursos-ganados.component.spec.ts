@@ -84,4 +84,31 @@ describe('CursosGanadosComponent', () => {
 
   });
 
+  describe('TDD eliminar Curso', () => {
+    it('Compueba que al llamar el metodo eliminar retorne true', function () {
+      const curso = {
+        nombre_curso: 'idioma tecnico 1',
+        creditos: 2,
+        detalle: 'Curso impartido el primer semestre',
+        codigo_curso: 1
+      }
+      component.guardarCurso(curso);
+      component.eliminar(1);
+      expect(component.e).toBeTruthy();
+    });
+
+    it('Compueba que al llamar el metodo eliminar retorne false', function () {
+      const curso = {
+        nombre_curso: 'idioma tecnico 1',
+        creditos: 2,
+        detalle: 'Curso impartido el primer semestre',
+        codigo_curso: 1
+      }
+      component.guardarCurso(curso);
+      component.eliminar(2);
+      expect(component.e).toBeFalsy();
+    });
+
+  });
+
 });
