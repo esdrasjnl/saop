@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PerfilComponent', () => {
-  let component2: PerfilComponent;
+  let component: PerfilComponent;
   let fixture: ComponentFixture<PerfilComponent>;
 
   beforeEach(async(() => {
@@ -20,13 +20,13 @@ describe('PerfilComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PerfilComponent);
-    component2 = fixture.componentInstance;
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component2).toBeTruthy();
-  });
+    expect(component).toBeTruthy();
+  }); 
 
   describe('Prueba unitaria perfil', () => {
     
@@ -37,13 +37,13 @@ describe('PerfilComponent', () => {
       const cui = '';
       const password = '';
       const carrera = '';
-      component2.llenarCampos();
-      expect(component2.carnet).toEqual(carnet);
-      expect(component2.nombre).toEqual(nombre);
-      expect(component2.apellido).toEqual(apellido);
-      expect(component2.cui).toEqual(cui);
-      expect(component2.password).toEqual(password);
-      expect(component2.carrera).toEqual(carrera);
+      component.llenarCampos();
+      expect(component.carnet).toEqual(carnet);
+      expect(component.nombre).toEqual(nombre);
+      expect(component.apellido).toEqual(apellido);
+      expect(component.cui).toEqual(cui);
+      expect(component.password).toEqual(password);
+      expect(component.carrera).toEqual(carrera);
     });
 
     it('Verifica que los campos esten vacios comparando con valores', () => {
@@ -53,13 +53,13 @@ describe('PerfilComponent', () => {
       const cui = '0';
       const password = '';
       const carrera = '';
-      component2.llenarCampos();
-      expect(component2.carnet).not.toEqual(carnet);
-      expect(component2.nombre).toEqual(nombre);
-      expect(component2.apellido).toEqual(apellido);
-      expect(component2.cui).not.toEqual(cui);
-      expect(component2.password).toEqual(password);
-      expect(component2.carrera).toEqual(carrera);
+      component.llenarCampos();
+      expect(component.carnet).not.toEqual(carnet);
+      expect(component.nombre).toEqual(nombre);
+      expect(component.apellido).toEqual(apellido);
+      expect(component.cui).not.toEqual(cui);
+      expect(component.password).toEqual(password);
+      expect(component.carrera).toEqual(carrera);
     });
   })
 

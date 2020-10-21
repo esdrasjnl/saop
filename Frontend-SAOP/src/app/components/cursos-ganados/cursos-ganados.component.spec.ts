@@ -51,4 +51,37 @@ describe('CursosGanadosComponent', () => {
 
   });
 
+  describe('TDD para guardar curso', () => {
+    it('Compueba que al llamar el metodo guardarCursos no debe de retornar 0', function () {
+    const curso = {
+      nombre_curso: 'idioma tecnico 1',
+      creditos: 2,
+      detalle: 'Curso impartido el primer semestre',
+      codigo_curso: 1
+    }
+
+      expect(component.guardarCurso(curso)).not.toEqual(0);
+    });
+
+    it('Compueba que al llamar el metodo guardarCursos debe de retornar 0', function () {
+      const curso = {
+        nombre_curso: 'idioma tecnico 1',
+        creditos: 2,
+        detalle: 'Curso impartido el primer semestre',
+        codigo_curso: 1
+      }
+
+      const curso1 = {
+        nombre_curso: 'idioma tecnico 2',
+        creditos: 3,
+        detalle: 'Curso impartido el segundo semestre',
+        codigo_curso: 1
+      }
+      component.guardarCurso(curso);
+      component.guardarCurso(curso1)
+        expect(component.guardarCurso(curso)).toEqual(0);
+      });
+
+  });
+
 });
