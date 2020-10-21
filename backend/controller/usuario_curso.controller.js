@@ -22,7 +22,7 @@ userCourseCtrl.getUsuarioCurso = async function (req, res, next) {
 
 userCourseCtrl.agregaUsuarioCurso = async function (req, res, next) {
     let { ref_carnet, ref_codigo_curso, estado, str_comentario } = req.body;
-    const validacion = `select count(*) as retorno from usuario_curso where ref_carnet = ${ref_carnet} and ref_codigo_curso = ${ref_codigo_curso} and estado = 0 or estado = 1`;
+    const validacion = `select count(*) as retorno from usuario_curso where ref_carnet = ${ref_carnet} and ref_codigo_curso = ${ref_codigo_curso} and estado = 1`;
 
     mysqldb.connection.query(validacion, function (err, results) {
         if (err) {
