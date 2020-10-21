@@ -11,6 +11,9 @@ Feature: BDD PARA PAGINA DE LOGIN
     And Abro la pagina de Perfil
     And Veo el titulo de Perfil
     And Veo que mi carnet coincida
+    And Veo que mi nombre coincida
+    And Ingreso a pagina de pensum
+    And Veo el pensum y busco el curso de Tecnicas de estudio e investigacion
     Then Cierro Sesion 
 
     Scenario: Login Erroneo

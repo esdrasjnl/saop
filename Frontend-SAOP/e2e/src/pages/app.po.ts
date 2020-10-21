@@ -43,6 +43,7 @@ export class AppPage {
     return element(by.css('h4')).getText() as Promise<any>;
   }
 
+
   obtenerNombreCurso(){
     return element(by.css('h3')).getText() as Promise<any>;
   }
@@ -50,6 +51,12 @@ export class AppPage {
   obtenerCarnetUsuario(){
     var carnet = element(by.name('cajacarnet')).getAttribute('value') as Promise<any>;
     return carnet;
+    
+  }
+
+  obtenerNombreUsuario(){
+    var nombre = element(by.name('cajan')).getAttribute('value') as Promise<any>;
+    return nombre;
     
   }
 
