@@ -41,9 +41,9 @@
       </div>
       <label class="control-label">Elija el curso que desea visualizar</label>
       <div class="form-group">
-        <select class="custom-select">
+        <select [ngModel]="selected" class="custom-select" (ngModelChange)="recibirCurso($event)">
 
-          <option *ngFor="let curso of cursos" name="Curso" value="1" (click)="recibirCurso(curso)">
+          <option *ngFor="let curso of cursos" name="Curso" [ngValue]="curso" >
             {{curso.nombre_curso}}</option>
         </select>
       </div>

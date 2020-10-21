@@ -11,6 +11,12 @@ export class CursosGanadosComponent implements OnInit {
 
   constructor(public service: CursoService, public router: Router) { }
 
+  datos = {
+    ref_carnet: '',
+    ref_codigo_curso: 0,
+    ref_estado: 1,
+    str_comentario: ''
+  };
 
 
 
@@ -27,6 +33,8 @@ export class CursosGanadosComponent implements OnInit {
 
   //VARIABLES PARA GENERAR LAS TARJETAS DE LA ASIGNACION
   tarjetas: any = [];
+  datosC: any = [];
+  enviar: string = "";
 
   ngOnInit() {
     this.obtenerCursos();
@@ -44,7 +52,6 @@ export class CursosGanadosComponent implements OnInit {
   }
 
   guardarCurso(curso) {
-
     const tarjeta = {
       nombre_curso: curso.nombre_curso,
       creditos: curso.creditos,
@@ -52,8 +59,16 @@ export class CursosGanadosComponent implements OnInit {
       codigo_curso: curso.codigo_curso
     }
 
+    const dato = {
+      ref_carnet: localStorage.getItem('carnet'),
+      ref_codigo_curso: curso.codigo_curso,
+      estado: '1',
+      str_comentario: ''
+    };
+
     if (this.tarjetas.length == 0) {
       this.tarjetas.push(tarjeta);
+      this.datosC.push(dato);
     }
     else {
       for (let i = 0; i < this.tarjetas.length; i++) {
@@ -62,6 +77,7 @@ export class CursosGanadosComponent implements OnInit {
         }
       }
       this.tarjetas.push(tarjeta);
+      this.datosC.push(dato);
     }
   }
 
@@ -69,9 +85,28 @@ export class CursosGanadosComponent implements OnInit {
     for (let i = 0; i < this.tarjetas.length; i++) {
       if (this.tarjetas[i].codigo_curso == codigo) {
         this.tarjetas.splice(i, 1);
-        console.log(this.tarjetas);
+        this.datosC.splice(i, 1);
       }
     }
+  }
+
+  asignar() {
+
+    for (let i = 0; i < this.datosC.length; i++) {
+      console.log(this.tarjetas[i].nombre_curso);
+      this.service.postCurso(this.datosC[i])
+        .subscribe(
+          res => {
+            console.log(res);
+              alert("CURSOS ASIGNADOS CORRECTAMENTE");
+          },
+          err => alert("NO SE PUEDEN ASIGNAR LOS CURSOS SELECCIONADOS")
+        )
+
+    }
+    this.tarjetas = [];
+
+
   }
 
 }

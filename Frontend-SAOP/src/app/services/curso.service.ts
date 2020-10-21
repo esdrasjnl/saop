@@ -30,6 +30,12 @@ export class CursoService {
     console.log(datos);
     return this.http.post<any>(`${this.api}/usuario/verPensum`,datos);
   }
+
+  postCurso(curso)
+  {
+    console.log(curso);
+    return this.http.post<any>(`${this.api}/usuarioCurso/agregar`,curso);
+  }
   
 }
 
