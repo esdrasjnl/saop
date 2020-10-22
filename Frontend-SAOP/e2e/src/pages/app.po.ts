@@ -32,6 +32,9 @@ export class AppPage {
     return browser.get(browser.baseUrl + 'pensum') as Promise<any>;
   }
 
+  ingresarAsignacion() {
+    return browser.get(browser.baseUrl + 'cursos-ganados') as Promise<any>;
+  }
 
   //OBTENER TITULOS
   
