@@ -97,7 +97,7 @@ describe("Express usuario_curso", async() => {
             });
     });
     //------------------------Prueba unitaria para Agregar cursoGanado---------
-    /*
+
     it("TestCursoGanado POST request /agregar", (done) => {
         request(app.use(ususuario_curso))
             .post("/agregar")
@@ -111,6 +111,7 @@ describe("Express usuario_curso", async() => {
                 }
             });
     });
+    /*
     it("TestCursoGanadoParameterNotvalid POST request /agregar", (done) => {
         request(app.use(ususuario_curso))
             .post("/agregar")
