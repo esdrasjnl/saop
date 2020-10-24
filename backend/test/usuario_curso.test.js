@@ -17,9 +17,9 @@ describe("Express usuario_curso", async() => {
             .get("/:")
             .send('091')
             .end(function(err, res) {
-                if(err){
+                if (err) {
                     done(err);
-                }else{
+                } else {
                     done();
                 }
             });
@@ -29,9 +29,9 @@ describe("Express usuario_curso", async() => {
             .get("/:")
             .send('')
             .end(function(err, res) {
-                if(err){
+                if (err) {
                     done(err);
-                }else{
+                } else {
                     done();
                 }
             });
@@ -41,9 +41,9 @@ describe("Express usuario_curso", async() => {
             .get("/:")
             .send('h')
             .end(function(err, res) {
-                if(err){
+                if (err) {
                     done(err);
-                }else{
+                } else {
                     done();
                 }
             });
@@ -96,32 +96,32 @@ describe("Express usuario_curso", async() => {
                 }
             });
     });
-    //------------------------Prueba unitaria para Agregar cursoGanado-------
-    it("TestCursoGanado POST request /agregar",(done)=>{
+    //------------------------Prueba unitaria para Agregar cursoGanado--------
+    it("TestCursoGanado POST request /agregar", (done) => {
         request(app.use(ususuario_curso))
-        .post("/agregar")
-        .send({"ref_carnet":"2015201221","ref_codigo_curso":"19","estado":"1","str_comentario":"aprobado"})
-        .expect(200)
-        .end((err,res)=>{
-            if(err){
-                done(err);
-            }else{
-                done();
-            }
-        });
+            .post("/agregar")
+            .send({ "ref_carnet": "2015201221", "ref_codigo_curso": "19", "estado": "1", "str_comentario": "aprobado" })
+            .expect(200)
+            .end((err, res) => {
+                if (err) {
+                    done(err);
+                } else {
+                    done();
+                }
+            });
     });
-    it("TestCursoGanadoParameterNotvalid POST request /agregar",(done)=>{
+    it("TestCursoGanadoParameterNotvalid POST request /agregar", (done) => {
         request(app.use(ususuario_curso))
-        .post("/agregar")
-        .send({"ref_carnet":"h","ref_codigo_curso":"19","estado":"1","str_comentario":"aprobado"})
-        .expect(200)
-        .end((err,res)=>{
-            if(err){
-                done(err);
-            }else{
-                done();
-            }
-        });
+            .post("/agregar")
+            .send({ "ref_carnet": "h", "ref_codigo_curso": "19", "estado": "1", "str_comentario": "aprobado" })
+            .expect(200)
+            .end((err, res) => {
+                if (err) {
+                    done(err);
+                } else {
+                    done();
+                }
+            });
     });
 
 })
