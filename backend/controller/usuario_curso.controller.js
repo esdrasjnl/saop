@@ -23,32 +23,36 @@ userCourseCtrl.getUsuarioCurso = async function (req, res, next) {
 userCourseCtrl.agregaUsuarioCurso = async function (req, res, next) {
     let { ref_carnet, ref_codigo_curso, estado, str_comentario } = req.body;
     const validacion = `select count(*) as retorno from usuario_curso where ref_carnet = ${ref_carnet} and ref_codigo_curso = ${ref_codigo_curso} and estado = 1`;
-
-    mysqldb.connection.query(validacion, function (err, results) {
-        if (err) {
-            throw err;
-        }
-        //console.log(results[0]);
-        var existeDato = results[0].retorno;
-        console.log(existeDato);
-        if (parseInt(existeDato) === 0) {
-            const sql = 'insert into usuario_curso set?';
-            const UsuarioObj = {
-                ref_carnet: req.body.ref_carnet,
-                ref_codigo_curso: req.body.ref_codigo_curso,
-                estado: req.body.estado,
-                str_comentario: req.body.str_comentario
-            };
-
-            mysqldb.connection.query(sql, UsuarioObj, error => {
-                if (error) throw error;
-                //res.send('Curso Agregado al Usuario');
-                res.json({ "Registro": "true" });
-            });
-        } else {
-            res.json({ 'estado': 'Datos Repetidos' });
-        }
-    });
+    let validaParametro=isNaN(ref_carnet) || isNaN(ref_codigo_curso) || isNaN(estado);
+    if(validaParametro){
+        return res.json({'estado':'datos no validos'});
+    }else{
+        mysqldb.connection.query(validacion, function (err, results) {
+            if (err) {
+                throw err;
+            }
+            //console.log(results[0]);
+            var existeDato = results[0].retorno;
+            console.log(existeDato);
+            if (parseInt(existeDato) === 0) {
+                const sql = 'insert into usuario_curso set?';
+                const UsuarioObj = {
+                    ref_carnet: req.body.ref_carnet,
+                    ref_codigo_curso: req.body.ref_codigo_curso,
+                    estado: req.body.estado,
+                    str_comentario: req.body.str_comentario
+                };
+    
+                mysqldb.connection.query(sql, UsuarioObj, error => {
+                    if (error) throw error;
+                    //res.send('Curso Agregado al Usuario');
+                    res.json({ "Registro": "true" });
+                });
+            } else {
+                res.json({ 'estado': 'Datos Repetidos' });
+            }
+        });
+    }
 }
 
 userCourseCtrl.getDetalleCurso = async function (req, res, next) {
