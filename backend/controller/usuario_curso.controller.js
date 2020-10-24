@@ -23,7 +23,9 @@ userCourseCtrl.getUsuarioCurso = async function (req, res, next) {
 userCourseCtrl.agregaUsuarioCurso = async function (req, res, next) {
     let { ref_carnet, ref_codigo_curso, estado, str_comentario } = req.body;
     const validacion = `select count(*) as retorno from usuario_curso where ref_carnet = ${ref_carnet} and ref_codigo_curso = ${ref_codigo_curso} and estado = 1`;
-    let validaParametro=isNaN(ref_carnet) || isNaN(ref_codigo_curso) || isNaN(estado);
+    console.log('ver lo que viene');
+    console.log(ref_carnet);
+    let validaParametro=isNaN(ref_carnet) || isNaN(ref_codigo_curso) || isNaN(estado) || !ref_carnet || !ref_codigo_curso || !estado || ref_carnet===' ' || ref_codigo_curso===' ' || estado===' ';
     if(validaParametro){
         return res.json({'estado':'datos no validos'});
     }else{
