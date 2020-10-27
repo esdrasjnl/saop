@@ -9,7 +9,7 @@ Before(() => {
   page = new AppPage();
 });
 
-Given(/^Abro la pagina de Registro$/, {timeout:5000}, async () => {
+Given(/^Deseo crear una cuenta en la aplicacion$/, {timeout:5000}, async () => {
     await page.ingresarregistro();
 });
 

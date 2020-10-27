@@ -9,12 +9,12 @@ Before(() => {
   page = new AppPage();
 });
 
-Given(/^Abro la pagina de Login$/, { timeout: 50000 }, async () => {
-  await page.ingresarLogin();
+Given(/^El usuario desea utilizar la aplicación$/, { timeout: 50000 }, async () => {
+  await page.navigateTo();
 });
 
-When(/^Veo el titulo de login$/, { timeout: 50000 }, async () => {
-  expect(await page.obtenerTitulo()).to.equal('LOGIN');
+When(/^Ingreso a la pagina de login$/, { timeout: 50000 }, async () => {
+  expect(await page.ingresarLogin());
 });
 
 When(/^Completo el campo carnet con 201503986$/, { timeout: 50000 }, async () => {
@@ -40,14 +40,14 @@ When(/^No completo el campo password$/, { timeout: 50000 }, async () => {
 });
 
 
-When(/^Se da click en el boton de ingreso$/, { timeout: 50000 }, async () => {
+When(/^Doy click en el boton de ingreso$/, { timeout: 50000 }, async () => {
   const ingreso = element(by.id("Ingresar"));
   await ingreso.click();
 });
 
 
 
-When(/^me dirige a pagina principal$/, { timeout: 50000 }, async () => {
+Then(/^Me dirige a pagina principal$/, { timeout: 50000 }, async () => {
   await page.ingresoPrincipal();
 });
 

@@ -9,7 +9,7 @@ Before(() => {
   page = new AppPage();
 });
 
-Given(/^Abro la pagina de Visualizacion$/, {timeout:5000}, async () => {
+Given(/^Deseo visualizar los cursos$/, {timeout:5000}, async () => {
     await page.ingresarVisualizacion();
 });
 

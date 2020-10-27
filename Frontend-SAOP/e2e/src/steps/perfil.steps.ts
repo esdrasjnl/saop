@@ -22,12 +22,12 @@ When(/^Veo el titulo de Perfil$/,{timeout:5000}, async () => {
     expect(await page.obtenerTitulo()).to.equal('MI PERFIL');
 });
 
-When(/^Veo que mi carnet coincida$/,{timeout:5000}, async () => {
+Then(/^Veo que mi carnet coincida$/,{timeout:5000}, async () => {
   delay(500);
   expect(await page.obtenerCarnetUsuario()).to.equal('201503986');
 });
 
-Then(/^Cierro Sesion$/,{timeout:5000}, async () => {
+When(/^Cierro Sesion$/,{timeout:5000}, async () => {
   const ingreso = element(by.id("cerrar"));
   await ingreso.click();
 });
