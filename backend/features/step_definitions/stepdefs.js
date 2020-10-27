@@ -153,3 +153,27 @@ Then('El usuario puede estar seguro que dicho pensum esta actualizado {string}',
     // Write code here that turns the phrase above into concrete actions
     assert.equal(this.estadoVisPem, retornoEsperado);
 });
+
+//------------------------- Para ingresar cursos ganados -------------------------
+function regcursosganados(corusorandom) {
+    if (corusorandom === "correcto") {
+        return "cursos aprobados";
+    } else {
+        return "error al ingresar cursos";
+    }
+}
+
+Given('El usuario selecciona los cursos aprobados', function() {
+    // Write code here that turns the phrase above into concrete actions
+    this.retorno = "correcto";
+});
+
+When('Hace clic en el boton guardar cursos aprobados', function() {
+    // Write code here that turns the phrase above into concrete actions
+    this.estadocursos_ganados = regcursosganados(this.retorno);
+});
+
+Then('Se retorna el mensaje {string}', function(retornoEsperado) {
+    // Write code here that turns the phrase above into concrete actions
+    assert.equal(this.estadocursos_ganados, retornoEsperado);
+});

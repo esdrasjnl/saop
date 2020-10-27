@@ -9,15 +9,18 @@ const { CLIENT_RENEG_LIMIT } = require('tls');
 const PORT = process.env.PORT || 4000;
 
 const usuario = require('./routes/usuario');
+const usuarioCurso = require('./routes/usuario_curso.router');
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(cors());
+
 //------------------------------------------------
 
 
 //------------------- Rutas -------------------
-app.use('/usuario', usuario);
+//app.use('/usuario', usuario);
+//app.use('/usuarioCurso', usuarioCurso);
 
 /*
 Obtener un usuario por carnet
@@ -95,6 +98,7 @@ app.get('/', (req, res)=>{
 app.use('/api/usuarioCurso/',require('./routes/usuario_curso.router'));
 app.use('/api/usuario/',require('./routes/usuario.router'));
 app.use('/api/usuarioEliminar/',require('./routes/usuario.router'));
+//app.use('/api/usuarioCurso/', require('./routes/usuario_curso.router'));
 
 //Check connect
 mysqldb.connect();

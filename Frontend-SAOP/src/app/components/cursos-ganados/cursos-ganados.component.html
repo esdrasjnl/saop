@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <img src="./assets/logo.png" height="60px">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="principal">Principal </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="visualizacion-cursos">Visualizacion Curso</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="perfil">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pensum">Pensum</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="cursos-ganados">Asignación de Cursos</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button id = "cerrar" class="btn btn-secondary my-2 my-sm-0" type="submit" onclick="window.location.href='#'">Cerrar
+                Sesión</button>
+        </form>
+    </div>
+</nav>
+
+
+<table style="margin: 0 auto;">
+    <tr>
+        <td>
+
+            <div class="form-group">
+                <p class="text-warning"></p>
+                <h4 class="p-3 mb-2 bg-warning text-dark">ASIGNACIÓN DE CURSOS</h4>
+            </div>
+            <label class="control-label">Elija el curso que desea asignar</label>
+            <div class="form-group">
+                <select [ngModel]="selected" class="custom-select" (ngModelChange)="guardarCurso($event)">
+
+                    <option *ngFor="let curso of cursos" name="Curso" [ngValue]="curso">
+                        {{curso.nombre_curso}}</option>
+                </select>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<div class="row">
+    <div *ngFor="let tarjeta of tarjetas" class="col-3">
+      <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header text-warning">
+          <h3 class="card-title text-warning">{{tarjeta.nombre_curso}}</h3>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-warning">Codigo Curso</h5>
+          <p class="card-text"> {{tarjeta.codigo_curso}}</p>
+          <h5 class="card-title text-warning">Cantidad de Creditos</h5>
+          <p class="card-text">{{tarjeta.creditos}}</p>
+          <h5 class="card-title text-warning">Descripcion</h5>
+          <p class="card-text">{{tarjeta.detalle}}</p>
+        </div>
+        <button type="submit" class="btn btn-secondary my-2 my-sm-0" id = "Eliminar" (click)="eliminar(tarjeta.codigo_curso)">ELIMINAR</button>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-secondary my-2 my-sm-0" id = "asignar" (click)="asignar()">ASIGNAR CURSOS</button>

@@ -7,6 +7,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { PerfilComponent} from './components/perfil/perfil.component'
 import { RegistroComponent } from './components/registro/registro.component';
 import {VisualizacionPensumComponent}  from './components/visualizacion-pensum/visualizacion-pensum.component';
+import {CursosGanadosComponent} from './components/cursos-ganados/cursos-ganados.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,11 @@ const routes: Routes = [
   {
     path: 'pensum',
     component: VisualizacionPensumComponent
+  }
+  ,
+  {
+    path: 'cursos-ganados',
+    component: CursosGanadosComponent
   }
 ];
 

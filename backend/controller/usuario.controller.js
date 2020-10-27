@@ -52,8 +52,7 @@ usuarioCtrl.postPensum = async function (req, res, next) {
 }
 
 usuarioCtrl.postUsuario = async function (req, res, next) {
-    const sql = 'insert into usuario set?';
-
+    let {carnet,nombre,apellidos,cui,clave,ref_codigo_carrera}=req.body;
     const UsuarioObj = {
         carnet: req.body.carnet,
         nombre: req.body.nombre,
@@ -62,25 +61,38 @@ usuarioCtrl.postUsuario = async function (req, res, next) {
         clave: req.body.clave,
         ref_codigo_carrera: req.body.ref_codigo_carrera
     };
-
-    console.log(req.body.carnet);
-    if (req.body.carnet === undefined || req.body.cui === undefined || req.body.nombre === undefined || req.body.apellidos === undefined || req.body.clave === undefined) {
-        return res.json({ 'Msg': 'Faltan Datos' });
-        //console.log(req.body.carnet);
-    }
-    mysqldb.connection.query(sql, UsuarioObj, error => {
-        if (error) throw error;
-        //res.send('Usuario Creado');
-        res.json({ 'estado': 'true' });
+    let validaParametro=!nombre || !apellidos || !clave ||!ref_codigo_carrera || isNaN(carnet) || isNaN(cui);
+    if(validaParametro){
+        return res.json({'estado':'Datos no validos o Faltan datos'});
+    }else{ 
+    const sql = 'insert into usuario set?';
+    const sqlvalida=`select count(*) as retorno from usuario where carnet=${carnet} or cui=${cui}`;
+    mysqldb.connection.query(sqlvalida,function(req,results){
+            var validar=results[0].retorno;
+            if(parseInt(validar)===0){// significa que no hay datos con el mismo carnet/cui registrado    
+                mysqldb.connection.query(sql, UsuarioObj, error => {
+                    if (error) throw error;
+                    res.json({ 'estado': 'true' });
+                });
+            }else{//ya hay datos con los mismos identificadores
+                res.json({'estado':'datos repetidos'});
+            }
     });
+    }
 }
 
-usuarioCtrl.getUserForcarnet = async function (req, res, next) {
+
+usuarioCtrl.getUserForcarnet=async function(req,res,next){
     const { carnet } = req.params;
-    const sql = `select * from usuario where carnet = ${carnet}`;
+    //const sql = `select * from usuario where carnet = ${carnet}`;
+    const sql = `select usuario.carnet as Carnet, usuario.nombre, usuario.apellidos, usuario.cui, usuario.clave, carrera.nombre as Carrera, sum(curso.creditos) as Creditos from usuario
+    join usuario_curso on usuario_curso.ref_carnet = usuario.carnet 
+    join curso on curso.codigo_curso = usuario_curso.ref_codigo_curso
+    join carrera on carrera.codigo_carrera = usuario.ref_codigo_carrera
+    where usuario.carnet = ${carnet} and usuario_curso.estado = 1;`;
     mysqldb.connection.query(sql, (error, result) => {
-        if (error) throw error;
-        if (result.length > 0) {
+        if(error) throw error;
+        if(result.length > 0){
             res.json(result);
         } else {
             res.send('No hay resultados');
