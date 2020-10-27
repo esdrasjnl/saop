@@ -9,7 +9,7 @@ Before(() => {
   page = new AppPage();
 });
 
-Given(/^Abro la pagina de PENSUM$/, {timeout:5000}, async () => {
+Given(/^Deseo ver el Pensum de la carrera$/, {timeout:5000}, async () => {
     await page.ingresarPensum();
 });
 
