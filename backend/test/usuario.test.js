@@ -56,12 +56,12 @@ describe("Express usuarios", async() => {
         })
     })
 //----------------------obtener datos de usuario-----------------------------
-    it("TEstgetUser GET request obtenerUsuario/Carnet", (done) => {
+    it("TestObtenerUsuario GET request obtenerUsuario/:carnet", (done) => {
         request(app.use(usuarios))
-            .get("/obtenerUsuario/:")
-            .send('201503986')
-            .expect(200)
-            .end((err, response) => {
+        .get("/obtenerUsuario/201503986")
+        //.send("201503986")
+        .expect(200)
+        .end((err, response) => {
                 if(err){
                     done(err);
                 }else{
