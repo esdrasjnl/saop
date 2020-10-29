@@ -36,4 +36,17 @@ describe("Pruebas unitarias para creditos ", async() => {
                 }
             });
         });
+        it("TestCreditoParameterVacio GET request /creditosPorcentaje", done => {
+        request(app.use(creditos))
+        .get("/creditosPorcentaje/")
+        .expect(404)
+        .end((err, res) => {
+            if (err) {
+                done(err);
+            } else {
+                done();
+                }
+            });
+        });
+    
 })
