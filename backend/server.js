@@ -98,7 +98,9 @@ app.get('/', (req, res)=>{
 app.use('/api/usuarioCurso/',require('./routes/usuario_curso.router'));
 app.use('/api/usuario/',require('./routes/usuario.router'));
 app.use('/api/usuarioEliminar/',require('./routes/usuario.router'));
+app.use('/api/usuarioC/',require('./routes/creditos.route'));
 //app.use('/api/usuarioCurso/', require('./routes/usuario_curso.router'));
+
 
 //Check connect
 mysqldb.connect();
