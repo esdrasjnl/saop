@@ -55,14 +55,18 @@ describe("Express usuarios", async() => {
             }
         })
     })
-
-    it("TEstgetUser GET request /id", (done) => {
+//----------------------obtener datos de usuario-----------------------------
+    it("TEstgetUser GET request obtenerUsuario/Carnet", (done) => {
         request(app.use(usuarios))
-            .get("/2023")
+            .get("/obtenerUsuario/:")
+            .send('201503986')
+            .expect(200)
             .end((err, response) => {
-                //assert(response.body.usuarios==="OK");
-                assert(typeof usuarios, "object");
-                done();
+                if(err){
+                    done(err);
+                }else{
+                    done();
+                }
             });
     });
 
