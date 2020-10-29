@@ -135,5 +135,18 @@ describe("Express usuarios", async() => {
             }    
         });
     });
+    it("TestLoginDatovacio POST request /inicioSesion", (done) => {
+        request(app.use(usuarios))
+       .post("/inicioSesion")
+        .send({"carnet":" ","clave":" "})
+        .expect(200)
+        .end((err, response) => {
+            if(err){
+                done(err);
+            }else{
+                done();
+            }    
+        });
+    });
 
 });
