@@ -69,15 +69,20 @@ describe("Express usuarios", async() => {
                 }
             });
     });
-
-    it("TestGetUserFunction GET request /id", (done) => {
+    it("TestObtenerUsuarioFail GET request obtenerUsuario/:carnet", (done) => {
         request(app.use(usuarios))
-            .get("/2023")
-            .end((err, response) => {
-                assert(typeof usuarios.getUsuarioId, "function");
-                done();
+        .get("/obtenerUsuario/h")
+        //.send("201503986")
+        .expect(200)
+        .end((err, response) => {
+                if(err){
+                    done(err);
+                }else{
+                    done();
+                }
             });
     });
+
     it("TestLogin POST request /inicioSesion", (done) => {
         request(app.use(usuarios))
             .post("{carnet:2023,clave:123}")
