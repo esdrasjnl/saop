@@ -76,7 +76,7 @@ describe("Pruebas unitarias para creditos ", async() => {
         it("TestCreditoParamaterVacio GET request /creditosSuma/:carnet", done => {
             request(app.use(creditos))
             .get("/creditosSuma/ ")
-            .expect(200)
+            .expect(404)
             .end((err, res) => {
                     if (err) {
                         done(err);
