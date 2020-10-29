@@ -82,6 +82,19 @@ describe("Express usuarios", async() => {
                 }
             });
     });
+    it("TestObtenerUsuarioNotFound GET request obtenerUsuario/:carnet", (done) => {
+        request(app.use(usuarios))
+        .get("/obtenerUsuario/1999")
+        //.send("201503986")
+        .expect(200)
+        .end((err, response) => {
+                if(err){
+                    done(err);
+                }else{
+                    done();
+                }
+            });
+    });
 
     it("TestLogin POST request /inicioSesion", (done) => {
         request(app.use(usuarios))
