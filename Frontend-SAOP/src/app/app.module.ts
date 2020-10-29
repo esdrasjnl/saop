@@ -14,6 +14,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { VisualizacionPensumComponent } from './components/visualizacion-pensum/visualizacion-pensum.component';
 import { CursosGanadosComponent } from './components/cursos-ganados/cursos-ganados.component';
+import { CreditosComponent } from './components/creditos/creditos.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CursosGanadosComponent } from './components/cursos-ganados/cursos-ganad
     PerfilComponent,
     RegistroComponent,
     VisualizacionPensumComponent,
-    CursosGanadosComponent
+    CursosGanadosComponent,
+    CreditosComponent
   ],
   imports: [
     BrowserModule,
