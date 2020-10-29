@@ -61,4 +61,16 @@ describe("Pruebas unitarias para creditos ", async() => {
                 }
             });
         });
+        it("TestCreditoSumaParamterNotValid GET request /creditosSuma/:carnet", done => {
+        request(app.use(creditos))
+        .get("/creditosSuma/n")
+        .expect(200)
+        .end((err, res) => {
+                if (err) {
+                    done(err);
+                } else {
+                    done();
+                    }
+                });
+        });
 })
