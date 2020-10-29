@@ -48,5 +48,17 @@ describe("Pruebas unitarias para creditos ", async() => {
                 }
             });
         });
-    
+    //----------creditos para suma -----
+    it("TestCreditoSuma GET request /creditosSuma/:carnet", done => {
+        request(app.use(creditos))
+        .get("/creditosSuma/2020")
+        .expect(200)
+        .end((err, res) => {
+            if (err) {
+                done(err);
+            } else {
+                done();
+                }
+            });
+        });
 })
