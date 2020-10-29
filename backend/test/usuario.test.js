@@ -122,8 +122,18 @@ describe("Express usuarios", async() => {
             }    
         });
     });
-    //==================PRUEBA UNITARIA SOBRE VISUALIZACION DE PENSUM=============
-
-
+    it("TestLoginDatoDatoerror POST request /inicioSesion", (done) => {
+        request(app.use(usuarios))
+       .post("/inicioSesion")
+        .send({"carnet":"n","clave":"123"})
+        .expect(200)
+        .end((err, response) => {
+            if(err){
+                done(err);
+            }else{
+                done();
+            }    
+        });
+    });
 
 });
