@@ -10,3 +10,18 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(cors());
 
+describe("Pruebas unitarias para creditos ", async() => {
+   //--------------------------pruebas para credito-----
+   it("TestCursodetalle GET request /creditosPorcentaje", done => {
+    request(app.use(creditos))
+    .get("/creditosPorcentaje/2015")
+    .expect(200)
+    .end((err, res) => {
+            if (err) {
+                done(err);
+            } else {
+                done();
+            }
+        });
+});
+})
