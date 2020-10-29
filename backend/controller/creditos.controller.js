@@ -26,7 +26,11 @@ usuarioCtrl.getUserForcarnet=async function(req,res,next){
 
 usuarioCtrl.getUserForcarnetSuma=async function(req,res,next){
     const { carnet } = req.params;
-    //const sql = `select * from usuario where carnet = ${carnet}`;
+    let parameterValid=isNaN(carnet);
+    if(parameterValid){
+        res.json({"estado":"datos no validos"});
+    }else{
+            //const sql = `select * from usuario where carnet = ${carnet}`;
     const sql = `select sum(curso.creditos) as Creditos from usuario
     join usuario_curso on usuario_curso.ref_carnet = usuario.carnet 
     join curso on curso.codigo_curso = usuario_curso.ref_codigo_curso
@@ -40,6 +44,7 @@ usuarioCtrl.getUserForcarnetSuma=async function(req,res,next){
             res.send('No hay resultados');
         }
     });
+    }
 }
 
 module.exports = usuarioCtrl;
