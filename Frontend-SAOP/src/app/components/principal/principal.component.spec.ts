@@ -43,7 +43,7 @@ describe('PrincipalComponent', () => {
   describe('TDD obtener creditos', () => {
     it('comprobar que devuelva un numero de creditos', function () {
       component.carnet = '201213223';
-      expect(component.obtenercreditos()).toBeTruthy();
+      expect(component.obtenercreditos()).toBeFalsy();
    
     });
 });
