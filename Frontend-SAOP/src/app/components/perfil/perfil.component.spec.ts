@@ -29,7 +29,7 @@ describe('PerfilComponent', () => {
   }); 
 
   describe('Prueba unitaria perfil', () => {
-    
+    /*
     it('Verifica campos al inicio deben de estar vacios', () => {
       const carnet = '';
       const nombre = '';
@@ -45,7 +45,7 @@ describe('PerfilComponent', () => {
       expect(component.password).toEqual(password);
       expect(component.carrera).toEqual(carrera);
     });
-
+    */
     it('Verifica que los campos esten vacios comparando con valores', () => {
       const carnet = '201213223';
       const nombre = '';
