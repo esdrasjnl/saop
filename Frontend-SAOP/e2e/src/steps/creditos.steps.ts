@@ -19,7 +19,7 @@ When(/^Ingreso a la pagina principal$/, { timeout: 50000 }, async () => {
 
 When(/^Veo el numero de creditos$/, { timeout: 50000 }, async () => {
   const ingreso = element(by.name("cajacr"));
-  await ingreso.sendKeys(56);
+  await ingreso.sendKeys("56");
 });
 
 Then(/^Muestra una alerta de error$/, { timeout: 50000 }, async () => {

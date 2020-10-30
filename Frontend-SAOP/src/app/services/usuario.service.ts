@@ -17,4 +17,10 @@ export class UsuarioService {
     console.log(usuario);
     return this.http.post<any>(`${this.api}/usuario/inicioSesion`,usuario);
   }
+
+  getcreditos(usuario)
+  {
+    console.log(usuario);
+    return this.http.get<any>(`${this.api}/usuarioC/creditosSuma/${usuario}`);
+  }
 }
