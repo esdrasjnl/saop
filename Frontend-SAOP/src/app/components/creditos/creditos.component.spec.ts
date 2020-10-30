@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CreditosComponent } from './creditos.component';
+
 
 describe('CreditosComponent', () => {
   let component: CreditosComponent;
@@ -22,4 +22,5 @@ describe('CreditosComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+
+  });

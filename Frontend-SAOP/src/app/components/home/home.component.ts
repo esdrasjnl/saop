@@ -9,8 +9,12 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+
+  carnet='';
+
   ngOnInit() {
     this.cerrarSesion();
+    
   }
 
   cerrarSesion() {
@@ -22,6 +26,8 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('ref_codigo_carrera', '');
   }
 
+
+  obtenercreditos(){}
 
 
 }
