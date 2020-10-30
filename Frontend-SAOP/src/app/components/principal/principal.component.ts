@@ -43,12 +43,11 @@ export class PrincipalComponent implements OnInit {
         if (this.cajacr !=""){
          return true;
         }else{
-          alert("Creditos no se pueden mostrar!")
       return false;
         }
        
       },
-      err => {alert("Creditos no se pueden mostrar!")
+      err => {
       return false;
     }
     )
