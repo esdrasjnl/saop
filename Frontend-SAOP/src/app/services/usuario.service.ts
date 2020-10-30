@@ -23,4 +23,9 @@ export class UsuarioService {
     console.log(usuario);
     return this.http.get<any>(`${this.api}/usuarioC/creditosSuma/${usuario}`);
   }
+
+  getPorcentaje(usuario)
+  {
+    return this.http.get<any>(`${this.api}/usuarioC/creditosPorcentaje/${usuario}`);
+  }
 }
