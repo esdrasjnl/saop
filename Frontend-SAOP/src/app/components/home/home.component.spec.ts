@@ -23,22 +23,4 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
-  describe('Creditos Obtenidos ', () => {
-    it('Comprobar carnet diferente de vacio', function () {
-    const carnet ='';
-    expect(component.carnet).toEqual(carnet);
-    });
-
-  });
-
-  describe('TDD obtener creditos', () => {
-    it('comprobar que devuelva un numero de creditos', function () {
-      component.carnet = '201213223';
-
-      expect(component.obtenercreditos()).toBeFalsy();
-    });
-
-
-});
 });

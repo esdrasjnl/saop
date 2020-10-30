@@ -27,7 +27,5 @@ export class HomeComponent implements OnInit {
   }
 
 
-  obtenercreditos(){}
-
 
 }

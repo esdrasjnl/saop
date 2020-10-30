@@ -14,10 +14,11 @@ export class PrincipalComponent implements OnInit {
   }
 
   nombre:string="";
-
+  carnet:string="";
   llenar()
   {
     this.nombre = localStorage.getItem('nombre');
   }
 
+  obtenercreditos(){}
 }

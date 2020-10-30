@@ -13,8 +13,8 @@ Given(/^El usuario desea ver el numero de creditos$/, { timeout: 50000 }, async 
   await page.navigateTo();
 });
 
-When(/^Ingreso a la pagina de home$/, { timeout: 50000 }, async () => {
-  expect(await page.ingresoHome());
+When(/^Ingreso a la pagina principal$/, { timeout: 50000 }, async () => {
+  expect(await page.ingresoPrincipal());
 });
 
 When(/^veo el numero de creditos $/, { timeout: 50000 }, async () => {
