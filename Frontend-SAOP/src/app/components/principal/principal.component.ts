@@ -19,6 +19,7 @@ export class PrincipalComponent implements OnInit {
   nombre:string="";
   carnet:string="";
   cajacr:string="";
+  porcentaje:string="";
   llenar()
   {
     this.nombre = localStorage.getItem('nombre');
@@ -39,17 +40,21 @@ export class PrincipalComponent implements OnInit {
     .subscribe(
       res => {
         this.cajacr=res[0].Creditos;
-        
-        if (this.cajacr !=""){
-         return true;
-        }else{
-      return false;
-        }
+    
        
       },
       err => {
       return false;
     }
     )
+    if (this.cajacr!=" " || this.carnet!=null){
+      return true;
+     }else{
+   return false;
+     }
+  }
+
+  obtenerporcentaje(){
+
   }
 }

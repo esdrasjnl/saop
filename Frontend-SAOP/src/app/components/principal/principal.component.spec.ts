@@ -43,15 +43,21 @@ describe('PrincipalComponent', () => {
   describe('TDD obtener creditos', () => {
     it('comprobar que devuelva un numero de creditos', function () {
       component.carnet = '201213223';
-      expect(component.obtenercreditos()).toBeFalsy();
+      expect(component.obtenercreditos()).toBeTruthy();
    
     });
 });
 describe('TDD fallido obtener creditos', () => {
   it('comprobar que devuelva un numero de creditos', function () {
-    component.carnet = '';
+    component.carnet =null;
     expect(component.obtenercreditos()).toBeFalsy();
   });
+
+  describe('TDD fallido porcentaje de creditos', () => {
+    it('comprobar que devuelva un porcentaje de creditos', function () {
+      component.carnet ='201213223';
+      expect(component.obtenerporcentaje()).toBeTruthy();
+    });
 });
 
 });
