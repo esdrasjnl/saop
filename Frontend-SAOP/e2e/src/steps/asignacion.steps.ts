@@ -9,6 +9,6 @@ Before(() => {
   page = new AppPage();
 });
 
-/*Given(/^Abro la pagina de asignacion de cursos$/, { timeout: 50000 }, async () => {
+Given(/^Abro la pagina de asignacion de cursos$/, { timeout: 50000 }, async () => {
     await page.ingresarAsignacion();
-  });*/
+  });
