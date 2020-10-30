@@ -46,6 +46,7 @@ describe('PerfilComponent', () => {
       expect(component.carrera).toEqual(carrera);
     });
     */
+     /*
     it('Verifica que los campos esten vacios comparando con valores', () => {
       const carnet = '201213223';
       const nombre = '';
@@ -61,6 +62,7 @@ describe('PerfilComponent', () => {
       expect(component.password).toEqual(password);
       expect(component.carrera).toEqual(carrera);
     });
+    */
   })
 
 });
