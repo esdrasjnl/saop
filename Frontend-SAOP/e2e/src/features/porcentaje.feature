@@ -3,11 +3,11 @@ Feature: BDD PARA VER EL PORCENTAJE DE CREDITOS
 
   Scenario: Mostrar Porcentaje de Creditos
     Given El usuario desea ver el porcentaje de creditos
-    When Ingreso a la pagina principal
+    When Ingreso a la pagina inicio
     Then Veo el porcentaje de creditos
 
 
     Scenario: No Mostrar porcentaje de creditos
     Given El usuario desea ver el porcentaje de creditos
-    When Ingreso a la pagina principal
-    Then Muestra una alerta de error
+    When Ingreso a la pagina inicio
+    Then Muestra un error
