@@ -19,6 +19,9 @@
       <li class="nav-item">
         <a class="nav-link" href="pensum">Pensum</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="cursos-ganados">Asignación de Cursos</a>
+    </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit" onclick="window.location.href='#'">Cerrar
@@ -38,9 +41,9 @@
       </div>
       <label class="control-label">Elija el curso que desea visualizar</label>
       <div class="form-group">
-        <select class="custom-select">
+        <select [ngModel]="selected" class="custom-select" (ngModelChange)="recibirCurso($event)">
 
-          <option *ngFor="let curso of cursos" name="Curso" value="1" (click)="recibirCurso(curso)">
+          <option *ngFor="let curso of cursos" name="Curso" [ngValue]="curso" >
             {{curso.nombre_curso}}</option>
         </select>
       </div>

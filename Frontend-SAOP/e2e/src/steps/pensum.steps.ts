@@ -21,4 +21,3 @@ When(/^Veo el titulo VISUALIZACION PENSUM$/, {timeout:5000}, async () => {
 Then(/^Busco el curso de Tecnicas de estudio e investigacion$/, {timeout:5000}, async () => {
     
 });
-

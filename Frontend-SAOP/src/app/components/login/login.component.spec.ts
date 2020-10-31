@@ -37,12 +37,11 @@ describe('LoginComponent', () => {
       var s = new LoginComponent(component2.service, component2.router);
       spyOn(s, 'loguear').and.returnValue();
       component2.loguear;
-      expect(component2.error).toBeFalsy;
       expect(component2.datos).toEqual(datos);
 
     });
   
-    it('Realiza pueba unitaria login que debe de fallar por que espera que al inicio no tenga esos valores',function()
+    it('Realiza pueba unitaria login revisa que los datos enviados sean distintos',function()
     {
       const datos = {
         carnet:201213223,
@@ -51,8 +50,8 @@ describe('LoginComponent', () => {
       var s = new LoginComponent(component2.service, component2.router);
       spyOn(s, 'loguear').and.returnValue();
       component2.loguear;
-      expect(component2.error).toBeFalsy;
-      expect(component2.datos).toEqual(datos);
+      expect(component2.error).toBeFalsy();
+      expect(component2.datos).not.toEqual(datos);
     });
     
   });

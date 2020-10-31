@@ -15,6 +15,11 @@ export class AppPage {
   {
     return browser.get(browser.baseUrl + 'principal') as Promise<any>;
   }
+  ingresoHome()
+  {
+    return browser.get(browser.baseUrl + 'home') as Promise<any>;
+  }
+
 
   ingresarVisualizacion() {
     return browser.get(browser.baseUrl + 'visualizacion-cursos') as Promise<any>;
@@ -30,6 +35,11 @@ export class AppPage {
 
   ingresarPensum() {
     return browser.get(browser.baseUrl + 'pensum') as Promise<any>;
+  }
+
+  ingresarAsignacion()
+  {
+    return browser.get(browser.baseUrl + 'cursos-ganados') as Promise<any>;
   }
 
 
@@ -91,4 +101,9 @@ export class AppPage {
   }
 
 
+  campoCreditos()
+  {
+    let creditos = element(by.name('cajacr')).getText() as Promise<any>;
+    return creditos;
+  }
 }
