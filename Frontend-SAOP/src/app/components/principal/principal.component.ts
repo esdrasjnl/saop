@@ -14,6 +14,7 @@ export class PrincipalComponent implements OnInit {
   ngOnInit() {
     this.llenar();
     this.obtenercreditos();
+    this.obtenerporcentaje();
   }
 
   nombre:string="";
