@@ -90,14 +90,19 @@ usuarioCtrl.getUserForcarnet=async function(req,res,next){
     join curso on curso.codigo_curso = usuario_curso.ref_codigo_curso
     join carrera on carrera.codigo_carrera = usuario.ref_codigo_carrera
     where usuario.carnet = ${carnet} and usuario_curso.estado = 1;`;
-    mysqldb.connection.query(sql, (error, result) => {
-        if(error) throw error;
-        if(result.length > 0){
-            res.json(result);
-        } else {
-            res.send('No hay resultados');
-        }
-    });
+    let validarParametro=isNaN(carnet);
+    if(validarParametro){
+        res.json({"estado":"Datos nos validos"});
+    }else{
+        mysqldb.connection.query(sql, (error, result) => {
+            if(error) throw error;
+            if(result.length > 0){
+                res.json(result);
+            } else {
+                res.send('No hay resultados');
+            }
+        });
+    }
 }
 
 usuarioCtrl.deleteUser = async function (req, res, next) {

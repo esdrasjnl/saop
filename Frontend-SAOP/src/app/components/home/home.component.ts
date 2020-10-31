@@ -9,8 +9,12 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+
+  carnet='';
+
   ngOnInit() {
     this.cerrarSesion();
+    
   }
 
   cerrarSesion() {

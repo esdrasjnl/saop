@@ -177,3 +177,27 @@ Then('Se retorna el mensaje {string}', function(retornoEsperado) {
     // Write code here that turns the phrase above into concrete actions
     assert.equal(this.estadocursos_ganados, retornoEsperado);
 });
+
+//------------------------- Para calculo creditos -------------------------
+function regcalculocreditos(canlcred) {
+    if (canlcred === "calccreditos") {
+        return "reporte";
+    } else {
+        return "no hay reporte";
+    }
+}
+
+Given('El usuario selecciona la seccion de reporte de calculo de creditos', function() {
+    // Write code here that turns the phrase above into concrete actions
+    this.retorno = "calccreditos";
+});
+
+When('Hace clic en el boton obtener detalle', function() {
+    // Write code here that turns the phrase above into concrete actions
+    this.estadocalculo_creditos = regcalculocreditos(this.retorno);
+});
+
+Then('Se retorna reporte {string}', function(retornoEsperado) {
+    // Write code here that turns the phrase above into concrete actions
+    assert.equal(this.estadocalculo_creditos, retornoEsperado);
+});

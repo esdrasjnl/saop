@@ -55,43 +55,98 @@ describe("Express usuarios", async() => {
             }
         })
     })
-
-    it("TEstgetUser GET request /id", (done) => {
+//----------------------obtener datos de usuario-----------------------------
+    it("TestObtenerUsuario GET request obtenerUsuario/:carnet", (done) => {
         request(app.use(usuarios))
-            .get("/2023")
-            .end((err, response) => {
-                //assert(response.body.usuarios==="OK");
-                assert(typeof usuarios, "object");
-                done();
+        .get("/obtenerUsuario/201503986")
+        //.send("201503986")
+        .expect(200)
+        .end((err, response) => {
+                if(err){
+                    done(err);
+                }else{
+                    done();
+                }
             });
     });
-
-    it("TestGetUserFunction GET request /id", (done) => {
+    it("TestObtenerUsuarioFail GET request obtenerUsuario/:carnet", (done) => {
         request(app.use(usuarios))
-            .get("/2023")
-            .end((err, response) => {
-                assert(typeof usuarios.getUsuarioId, "function");
-                done();
+        .get("/obtenerUsuario/h")
+        //.send("201503986")
+        .expect(200)
+        .end((err, response) => {
+                if(err){
+                    done(err);
+                }else{
+                    done();
+                }
             });
     });
+    it("TestObtenerUsuarioNotFound GET request obtenerUsuario/:carnet", (done) => {
+        request(app.use(usuarios))
+        .get("/obtenerUsuario/1999")
+        //.send("201503986")
+        .expect(200)
+        .end((err, response) => {
+                if(err){
+                    done(err);
+                }else{
+                    done();
+                }
+            });
+    });
+//-----------Prueba unitaria sobre lgin ---------
     it("TestLogin POST request /inicioSesion", (done) => {
         request(app.use(usuarios))
-            .post("{carnet:2023,clave:123}")
-            .end((err, response) => {
-                assert(typeof usuarios, "object");
-                done();
+        .post("/inicioSesion")
+        .send("{carnet:2023,clave:123}")
+        .expect(200)
+        .end((err, response) => {
+              if(err){
+                  done(err);
+              }else{
+                  done();
+              }
             });
     });
-    it("TestLoginFuction POST request /inicioSesion", (done) => {
+    it("TestLoginDatoIncorrect POST request /inicioSesion", (done) => {
         request(app.use(usuarios))
-            .post("{carnet: 2023,clave:123}")
-            .end((err, response) => {
-                assert(typeof usuarios.inicioSesion, "function");
+       .post("/inicioSesion")
+        .send({"carnet":"202","clave":"123"})
+        .expect(200)
+        .end((err, response) => {
+            if(err){
+                done(err);
+            }else{
                 done();
-            });
+            }    
+        });
     });
-    //==================PRUEBA UNITARIA SOBRE VISUALIZACION DE PENSUM=============
-
-
+    it("TestLoginDatoDatoerror POST request /inicioSesion", (done) => {
+        request(app.use(usuarios))
+       .post("/inicioSesion")
+        .send({"carnet":"n","clave":"123"})
+        .expect(200)
+        .end((err, response) => {
+            if(err){
+                done(err);
+            }else{
+                done();
+            }    
+        });
+    });
+    it("TestLoginDatovacio POST request /inicioSesion", (done) => {
+        request(app.use(usuarios))
+       .post("/inicioSesion")
+        .send({"carnet":" ","clave":" "})
+        .expect(200)
+        .end((err, response) => {
+            if(err){
+                done(err);
+            }else{
+                done();
+            }    
+        });
+    });
 
 });
