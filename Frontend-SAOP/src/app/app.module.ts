@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ChartsModule, ThemeService } from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VisualizacionComponent } from './components/visualizacion/visualizacion.component';
@@ -33,10 +33,12 @@ import { CreditosComponent } from './components/creditos/creditos.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [
-    CursoService
+    CursoService,
+    ThemeService
   ],
   bootstrap: [AppComponent]
 })

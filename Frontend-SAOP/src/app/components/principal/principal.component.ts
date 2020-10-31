@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UsuarioService  } from "../../services/usuario.service";
 import { Router } from '@angular/router';
+import { ChartType } from 'chart.js';
+import { MultiDataSet, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-principal',
@@ -10,6 +12,9 @@ import { Router } from '@angular/router';
 export class PrincipalComponent implements OnInit {
 
   constructor(public service:UsuarioService,public router:Router ) { }
+  
+ 
+
 
   ngOnInit() {
     this.llenar();
@@ -19,8 +24,14 @@ export class PrincipalComponent implements OnInit {
 
   nombre:string="";
   carnet:string="";
-  cajacr:string="";
+  cajacr:string = "";
   cajacp:string="";
+
+  public doughnutChartLabels: Label[] = ['%Creditos Obtenidos', '%Creditos Faltantes'];
+  public doughnutChartData: MultiDataSet;
+  public doughnutChartType: ChartType = 'doughnut';
+
+
   llenar()
   {
     this.nombre = localStorage.getItem('nombre');
@@ -41,8 +52,7 @@ export class PrincipalComponent implements OnInit {
     .subscribe(
       res => {
         this.cajacr=res[0].Creditos;
-    
-       
+        
       },
       err => {
       return false;
@@ -60,6 +70,7 @@ export class PrincipalComponent implements OnInit {
     .subscribe(
       res => {
         this.cajacp=res[0].Porcentaje;
+        this.doughnutChartData = [[Number(this.cajacp), 100]];
       },
       err => {
       return false;
@@ -71,4 +82,14 @@ export class PrincipalComponent implements OnInit {
    return false;
      }
   }
+
+
+    // events
+    public chartClicked(e:any): void {
+      console.log(e);
+    }
+  
+    public chartHovered(e:any): void  {
+      console.log(e);
+    }
 }
