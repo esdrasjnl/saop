@@ -58,7 +58,7 @@ export class PrincipalComponent implements OnInit {
     this.service.getPorcentaje(this.carnet)
     .subscribe(
       res => {
-        this.cajacp=res[0].Creditos;
+        this.cajacp=res[0].Porcentaje;
       },
       err => {
       return false;
